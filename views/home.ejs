@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPath - MHT CET & NEET Counseling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Edu<span>Path</span></a>
+            <div class="auth-buttons desktop">
+                <button class="btn btn-outline" onclick="openLoginModal()">Login</button>
+                <button class="btn btn-primary" onclick="openRegisterModal()">Register</button>
+            </div>
+            <button class="mobile-menu-btn" onclick="openMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu - Now slides from right -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu-btn" onclick="closeMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-buttons">
+            <button class="btn btn-outline" onclick="openLoginModal()">Login</button>
+            <button class="btn btn-primary" onclick="openRegisterModal()">Register</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMobileMenu()"></div>
+
+    <section class="hero">
+        <h1 class="fade-in">Your Path to Medical & Engineering Success</h1>
+        <p class="fade-in delay-1">Comprehensive counseling platform for MHT CET PCM, MHT CET PCB, and NEET aspirants. Find your dream college with our advanced tools and predictors.</p>
+        
+        <div class="exam-cards">
+            <div class="exam-card fade-in delay-1" onclick="selectExam('pcm')">
+                <i class="fas fa-calculator"></i>
+                <h3>MHT CET PCM</h3>
+                <p>Engineering aspirants guide with college predictions, cutoffs, and more</p>
+                <button class="btn btn-outline">Explore</button>
+            </div>
+            
+            <div class="exam-card fade-in delay-2" onclick="selectExam('pcb')">
+                <i class="fas fa-flask"></i>
+                <h3>MHT CET PCB</h3>
+                <p>Pharmacy and other science courses with detailed college information</p>
+                <button class="btn btn-outline">Explore</button>
+            </div>
+            
+            <div class="exam-card fade-in delay-3" onclick="selectExam('neet')">
+                <i class="fas fa-heartbeat"></i>
+                <h3>NEET</h3>
+                <p>Medical college predictor and counseling for MBBS/BDS aspirants</p>
+                <button class="btn btn-outline">Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Our Powerful Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Percentile Predictor</h3>
+                <p>Estimate your percentile based on your expected score and previous year trends</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Top Colleges</h3>
+                <p>Discover the best colleges based on your exam and preferences</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-code-branch"></i>
+                <h3>Branch-wise Cutoff</h3>
+                <p>Detailed cutoff information for all branches across colleges</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-university"></i>
+                <h3>College Predictor</h3>
+                <p>Predict which colleges you can get based on your scores</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-list-ol"></i>
+                <h3>Preference List Generator</h3>
+                <p>Generate optimized preference list for counseling rounds</p>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <p class="copyright">© 2023 EduPath. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/home.js"></script>
+</body>
+</html>

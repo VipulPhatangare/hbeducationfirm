@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPath - Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+    <div class="platform-header">
+        <div class="platform-info">
+            <h1><i class="fas fa-graduation-cap"></i> EduPath</h1>
+            <p>Your Complete Guide to Medical & Engineering Entrance Exams</p>
+        </div>
+    </div>
+
+    <div class="register-container">
+        <div class="register-header">
+            <h1>Create Your Account</h1>
+            <p>Join thousands of students preparing for their dream careers</p>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <form id="registerForm" class="register-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" class="form-control" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" class="form-control" placeholder="Enter your last name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Enter 10-digit phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label>Select Your Exam Type</label>
+                <div class="exam-options">
+                    <div class="exam-option">
+                        <input type="radio" id="pcm" name="examType" value="MHTCETPCM">
+                        <label for="pcm">
+                            <span>MHT CET PCM</span>
+                        </label>
+                    </div>
+                    <div class="exam-option">
+                        <input type="radio" id="pcb" name="examType" value="MHTCETPCB">
+                        <label for="pcb">
+                            <span>MHT CET PCB</span>
+                        </label>
+                    </div>
+                    <div class="exam-option">
+                        <input type="radio" id="neet" name="examType" value="NEET">
+                        <label for="neet">
+                            <span>NEET</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                </div>
+            </div>
+
+            <button type="submit" id="registerBtn" class="btn btn-primary btn-block">
+                <span id="btnText">Register Now</span>
+                <div id="spinner" class="spinner"></div>
+            </button>
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a id="login_here">Login here</a>
+        </div>
+    </div>
+
+    <script src="/js/register.js"></script>
+</body>
+</html>

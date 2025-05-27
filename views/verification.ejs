@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPath - Verify OTP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/verification.css">
+</head>
+<body>
+    <div class="platform-header">
+        <div class="platform-info">
+            <h1><i class="fas fa-graduation-cap"></i> EduPath</h1>
+            <p>Your Complete Guide to Medical & Engineering Entrance Exams</p>
+        </div>
+    </div>
+
+    <div class="verify-container">
+        <div class="verify-header">
+            <h1>Verify Your Account</h1>
+            <p>We've sent a 6-digit code to your phone number</p>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="otp-section">
+            <div class="form-group">
+                <label>Enter OTP sent to <span id="phoneDisplay"></span></label>
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" maxlength="1" data-index="1">
+                    <input type="text" class="otp-input" maxlength="1" data-index="2">
+                    <input type="text" class="otp-input" maxlength="1" data-index="3">
+                    <input type="text" class="otp-input" maxlength="1" data-index="4">
+                    <input type="text" class="otp-input" maxlength="1" data-index="5">
+                    <input type="text" class="otp-input" maxlength="1" data-index="6">
+                </div>
+                <a id="resendOtp" class="resend-otp">Resend OTP</a>
+            </div>
+
+            <button id="verifyOtpBtn" class="btn btn-primary btn-block">
+                <span id="verifyBtnText">Verify & Complete Registration</span>
+                <div id="verifySpinner" class="spinner"></div>
+            </button>
+        </div>
+
+        <div class="login-link">
+            Already have an account? <a href="login.html">Login here</a>
+        </div>
+    </div>
+
+    <script>
+        const PHONE_PLACEHOLDER = "<%= phone %>";
+        const otp = "<%= otp %>";
+    </script>
+    <script src="/js/verification.js">
+    </script>
+</body>
+</html>

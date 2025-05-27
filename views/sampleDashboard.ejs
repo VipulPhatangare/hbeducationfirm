@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Counselling Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background-color: #2d3e50;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #1c2833;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 20px;
+      background: #f4f6f8;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .session-card {
+      background: #fff;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+    }
+
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .close {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <a href="#">Home</a>
+    <a href="#">Sessions</a>
+    <a href="#">Profile</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <!-- Main Section -->
+  <div class="main">
+    <div class="header">
+      <h1>Welcome, Student</h1>
+      <button class="button" onclick="openModal()">+ Book Session</button>
+    </div>
+
+    <h2>Upcoming Sessions</h2>
+    <div class="session-card">
+      <strong>Dr. Smith</strong><br/>
+      Topic: Exam Stress<br/>
+      Date: May 28, 2025<br/>
+      Time: 3:00 PM
+    </div>
+
+    <div class="session-card">
+      <strong>Dr. Patel</strong><br/>
+      Topic: Career Guidance<br/>
+      Date: June 1, 2025<br/>
+      Time: 11:00 AM
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="sessionModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Book New Session</h3>
+      <input type="text" id="counsellor" placeholder="Counsellor Name" />
+      <input type="text" id="topic" placeholder="Topic" />
+      <input type="date" id="date" />
+      <input type="time" id="time" />
+      <button class="button" onclick="bookSession()">Book</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("sessionModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("sessionModal").style.display = "none";
+    }
+
+    function bookSession() {
+      const counsellor = document.getElementById('counsellor').value;
+      const topic = document.getElementById('topic').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+
+      if (!counsellor || !topic || !date || !time) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      const sessionCard = document.createElement("div");
+      sessionCard.className = "session-card";
+      sessionCard.innerHTML = `
+        <strong>${counsellor}</strong><br/>
+        Topic: ${topic}<br/>
+        Date: ${date}<br/>
+        Time: ${time}
+      `;
+
+      document.querySelector(".main").appendChild(sessionCard);
+      closeModal();
+
+      // Clear form
+      document.getElementById('counsellor').value = '';
+      document.getElementById('topic').value = '';
+      document.getElementById('date').value = '';
+      document.getElementById('time').value = '';
+    }
+
+    // Close modal on background click
+    window.onclick = function(e) {
+      const modal = document.getElementById("sessionModal");
+      if (e.target == modal) {
+        closeModal();
+      }
+    };
+  </script>
+
+</body>
+</html>

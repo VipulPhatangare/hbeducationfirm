@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPath - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Welcome Back</h1>
+            <p>Login to access your EduPath dashboard</p>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="loginPhone">Phone Number</label>
+                <input type="tel" id="loginPhone" class="form-control" placeholder="Enter your registered phone number" required>
+                <!-- <i class="fas fa-phone input-icon"></i> -->
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                <!-- <i class="fas fa-lock input-icon"></i> -->
+            </div>
+
+            <button type="button" id="forgotPasswordBtn" class="btn-link">Forgot Password?</button>
+
+            <button type="submit" id="loginBtn" class="btn btn-primary btn-block">
+                <span id="loginBtnText">Login</span>
+                <div id="loginSpinner" class="spinner"></div>
+            </button>
+
+            <div class="register-link">
+                Don't have an account? <a id="register_here">Register here</a>
+            </div>
+        </form>
+
+        <!-- Forgot Password Form -->
+        <form id="forgotPasswordForm" class="login-form" style="display: none;">
+            <div class="form-group">
+                <label for="forgotPhone">Phone Number</label>
+                <input type="tel" id="forgotPhone" class="form-control" placeholder="Enter your registered phone number" required>
+                <i class="fas fa-phone input-icon"></i>
+            </div>
+
+            <button type="submit" id="sendOtpBtn" class="btn btn-primary btn-block">
+                <span id="sendOtpBtnText">Send OTP</span>
+                <div id="sendOtpSpinner" class="spinner"></div>
+            </button>
+
+            <button type="button" id="backToLoginBtn" class="btn-link">Back to Login</button>
+        </form>
+
+        <!-- OTP Verification Section -->
+        <div id="otpSection" class="otp-section">
+            <div class="form-group">
+                <label>Enter OTP sent to <span id="phoneDisplay"></span></label>
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" maxlength="1" data-index="1">
+                    <input type="text" class="otp-input" maxlength="1" data-index="2">
+                    <input type="text" class="otp-input" maxlength="1" data-index="3">
+                    <input type="text" class="otp-input" maxlength="1" data-index="4">
+                    <input type="text" class="otp-input" maxlength="1" data-index="5">
+                    <input type="text" class="otp-input" maxlength="1" data-index="6">
+                </div>
+                <a id="resendOtp" class="resend-otp">Resend OTP</a>
+            </div>
+
+            <button id="verifyOtpBtn" class="btn btn-primary btn-block">
+                <span id="verifyBtnText">Verify OTP</span>
+                <div id="verifySpinner" class="spinner"></div>
+            </button>
+        </div>
+
+        <!-- Reset Password Section -->
+        <form id="resetPasswordForm" class="login-form reset-password-section">
+            <div class="form-group">
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" class="form-control" placeholder="Create a new password" required>
+                <i class="fas fa-lock input-icon"></i>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmNewPassword">Confirm New Password</label>
+                <input type="password" id="confirmNewPassword" class="form-control" placeholder="Confirm your new password" required>
+                <i class="fas fa-lock input-icon"></i>
+            </div>
+
+            <button type="submit" id="resetPasswordBtn" class="btn btn-primary btn-block">
+                <span id="resetBtnText">Reset Password</span>
+                <div id="resetSpinner" class="spinner"></div>
+            </button>
+        </form>
+    </div>
+
+    <script src="/js/login.js"></script>
+</body>
+</html>
