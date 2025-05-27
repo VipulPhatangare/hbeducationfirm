@@ -7,13 +7,14 @@ const session = require('express-session');
 const isLoggedIn = require('./middleware/auth');
 
 
-app.use(session({
-  secret: process.env.SESSION_SECRET,        
-  resave: false,                     
-  saveUninitialized: false,         
-  cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 }       
-}));
+const MongoStore = require('connect-mongo');
 
+app.use(session({
+  secret: 'secret',
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI}),
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));

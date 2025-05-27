@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHT CET Percentile Predictor 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/percentilepredictor.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Edu<span>Path</span></a>
+            <button class="logout-btn" id="back_to_pcm">Back</button>
+        </nav>
+    </header>
+
+    <div class="mobile-menu">
+        <button class="close-menu-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-buttons">
+            <button class="btn btn-outline">Login</button>
+            <button class="btn btn-primary">Sign Up</button>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h1>MHT CET 2025 Percentile Predictor</h1>
+                    <p>Get your estimated percentile based on your exam performance</p>
+                </div>
+                <div class="card-body">
+                    <form id="percentileForm">
+                        <div class="form-group">
+                            <label class="form-label">Enter Your Marks</label>
+                            <div class="marks-container">
+                                <div class="marks-input">
+                                    <label for="mathMarks" class="form-label">Mathematics (0-100)</label>
+                                    <input type="number" id="mathMarks" class="form-control" min="0" max="100" placeholder="Math marks" required>
+                                </div>
+                                <div class="marks-input">
+                                    <label for="physicsMarks" class="form-label">Physics (0-50)</label>
+                                    <input type="number" id="physicsMarks" class="form-control" min="0" max="50" placeholder="Physics marks" required>
+                                </div>
+                                <div class="marks-input">
+                                    <label for="chemistryMarks" class="form-label">Chemistry (0-50)</label>
+                                    <input type="number" id="chemistryMarks" class="form-control" min="0" max="50" placeholder="Chemistry marks" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="examDate" class="form-label">Exam Date</label>
+                            <select id="examDate" class="form-control" required>
+                                <option value="">-- Select Exam Date --</option>
+                                <option value="19-04-2025">19 April 2025 (Day 1)</option>
+                                <option value="20-04-2025">20 April 2025 (Day 2)</option>
+                                <option value="21-04-2025">21 April 2025 (Day 3)</option>
+                                <option value="22-04-2025">22 April 2025 (Day 4)</option>
+                                <option value="23-04-2025">23 April 2025 (Day 5)</option>
+                                <option value="24-04-2025">24 April 2025 (Day 6)</option>
+                                <option value="25-04-2025">25 April 2025 (Day 7)</option>
+                                <option value="26-04-2025">26 April 2025 (Day 8)</option>
+                                <option value="27-04-2025">27 April 2025 (Day 9)</option>
+                                <option value="05-05-2025">05 May 2025 (Day 10)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="shift" class="form-label">Exam Shift</label>
+                            <select id="shift" class="form-control" required>
+                                <option value="">-- Select Exam Shift --</option>
+                                <option value="shift_1">Shift 1 (Morning - 9 AM to 12 PM)</option>
+                                <option value="shift_2">Shift 2 (Afternoon - 2 PM to 5 PM)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Calculate My Percentile</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="result-card fade-in delay-1" id="result">
+                <h2 class="result-title">Your Predicted MHT CET Percentile</h2>
+                <div class="percentile-value" id="percentileValue">00.00</div>
+                
+                <div class="result-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Total Score</div>
+                        <div class="detail-value" id="displayMarks">-</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Math Percentile</div>
+                        <div class="detail-value" id="displayMath">-</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Physics Percentile</div>
+                        <div class="detail-value" id="displayPhysics">-</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Chemistry Percentile</div>
+                        <div class="detail-value" id="displayChemistry">-</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Exam Date</div>
+                        <div class="detail-value" id="displayDate">-</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Exam Shift</div>
+                        <div class="detail-value" id="displayShift">-</div>
+                    </div>
+                </div>
+                
+                <p class="info-text">
+                    Note: This is a predicted percentile based on historical data and statistical analysis. 
+                    Actual percentile may vary based on final exam statistics.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">© 2025 CET Predictor. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/percentilepredictor.js"></script>
+</body>
+</html>

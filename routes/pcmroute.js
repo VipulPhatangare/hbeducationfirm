@@ -11,4 +11,13 @@ router.get('/logout',(req,res)=>{
     res.json({msg : 'logout succefully.',islogout : true})
   });
 });
+
+router.get('/percentilePredictor',(req,res)=>{
+  if (req.session.user) {
+    res.render('percentilepredictor'); 
+  }else{
+    res.send('Error');
+  }
+});
+
 module.exports = router;

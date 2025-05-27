@@ -16,6 +16,11 @@ const collegeSwiper = new Swiper(".collegeSwiper", {
     },
 });
 
+
+document.getElementById('percentilePredictor').addEventListener('click',()=>{
+    window.location.href = '/pcm/percentilePredictor';
+});
+
 //logout
 document.getElementById('logout').addEventListener('click',async ()=>{
     try {
