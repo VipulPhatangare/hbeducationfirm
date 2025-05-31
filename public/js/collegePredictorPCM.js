@@ -73,6 +73,9 @@ function handleFormSubmit(e) {
     generateCollegeList(formData);
 }
 
+document.getElementById('back_to_pcm').addEventListener('click',()=>{
+  window.location.href = '/pcm';
+});
 
 function handleRegionCheckboxChange(e) {
     if (e.target.value === "All" && e.target.checked) {
