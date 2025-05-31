@@ -37,6 +37,12 @@ document.getElementById('logout').addEventListener('click',async ()=>{
     }
 });
 
+
+document.getElementById('collegePredictorPCM').addEventListener('click',()=>{
+    window.location.href = '/pcm/collegePredictorPCM';
+});
+
+
 // View College Details
 function viewCollegeDetails(collegeName) {
     // In actual implementation, this would redirect to college details page

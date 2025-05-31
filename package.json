@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
     "axios": "^1.9.0",
     "bcrypt": "^6.0.0",
     "connect-mongo": "^5.1.0",
@@ -19,6 +20,8 @@
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "mongoose": "^8.15.0",
+    "mysql2": "^3.14.1",
+    "pg": "^8.16.0",
     "twilio": "^5.6.1"
   }
 }

@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
+const mysql = require("mysql2");
+const { createClient } = require('@supabase/supabase-js');
+const { Pool } = require('pg');
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
+
+// ✅ PostgreSQL (for Supabase SQL)
+const pgPool = new Pool({
+  connectionString: process.env.SUPABASE_DB_URL, 
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 const connectDB = async () => {
   try {
@@ -12,4 +24,21 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB;
+const db = mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,  
+    multipleStatements: true
+});
+
+db.connect((err)=>{
+    if(err){
+        console.log("Mysql connection failed."+err.stack);
+        return;
+    }else{
+        console.log("Mysql connection estabilish sucssefully.."+db.threadId);
+    }
+});
+
+module.exports = {connectDB, db, supabase, pgPool};

@@ -20,4 +20,13 @@ router.get('/percentilePredictor',(req,res)=>{
   }
 });
 
+router.get('/collegePredictorPCM',(req,res)=>{
+  if (req.session.user) {
+    res.render('collegePredictorPCM'); 
+  }else{
+    res.send('Error');
+  }
+});
+
+
 module.exports = router;

@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const path = require('path');
 const app = express();
-const connectDB = require('./database/db');
+const {connectDB, db} = require('./database/db');
 const session = require('express-session');
 const isLoggedIn = require('./middleware/auth');
 
@@ -16,6 +16,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
+
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -25,6 +26,9 @@ const port = process.env.PORT
 
 
 // routes
+app.get('/',isLoggedIn,(req,res)=>{
+  res.render('pcm');
+});
 const registerRoutes = require('./routes/registerroute'); 
 app.use('/register',registerRoutes);
 
@@ -37,9 +41,10 @@ app.use('/verification',verificationRoutes);
 const pcmRoutes = require('./routes/pcmroute'); 
 app.use('/pcm',pcmRoutes);
 
-app.get('/',isLoggedIn,(req,res)=>{
-  res.render('pcm');
-});
+
+const collegePredictorPCMRoutes = require('./routes/collegePredictorPCMroute'); 
+app.use('/collegePredictorPCM',collegePredictorPCMRoutes);
+
 
 app.listen(port,()=>{
     console.log('server listing at port 8080');
