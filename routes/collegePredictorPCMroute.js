@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {db, supabase, pgPool} = require('../database/db');
+const {db, supabase} = require('../database/db');
 
 router.get('/',(req,res)=>{
   res.render('collegePredictorPCM');
@@ -100,27 +100,6 @@ async function getRankFromPercentile(percentile) {
 }
 
 
-// async function getRankFromPercentile(percentile) {
-//     const roundedPercentile = customRound(percentile);
-
-//     const query = 'SELECT `rank` FROM percentile_to_rank WHERE percentile = ?;';
-    
-//     return new Promise((resolve, reject) => {
-//         db.query(query, [roundedPercentile], (err, result) => {
-//             if (err) {
-//                 console.error('Error fetching rank:', err);
-//                 reject(err);
-//             } else if (result.length > 0) {
-//                 resolve(result[0].rank);
-//             } else {
-//                 resolve(null); // or reject with an error if preferred
-//             }
-//         });
-//     });
-// }
-
-
-
 
 async function getSelectedBranchCode(selected_branches) {
     try {
@@ -137,29 +116,6 @@ async function getSelectedBranchCode(selected_branches) {
     }
 }
 
-// async function getSelectedBranchCode(selected_branches) {
-//     const q = 'SELECT branch_code FROM branch WHERE branch_name = ?;';
-
-//     const promises = selected_branches.map(branch => {
-//         return new Promise((resolve, reject) => {
-//             db.query(q, [branch], (err, result) => {
-//                 if (err) {
-//                     reject(err);
-//                 } else {
-//                     resolve(result[0].branch_code);
-//                 }
-//             });
-//         });
-//     });
-
-//     try {
-//         const branchCodes = await Promise.all(promises);
-//         return branchCodes;
-//     } catch (error) {
-//         console.error('Error fetching branch codes:', error);
-//         throw error;
-//     }
-// }
 
 function calculateRankRange(rank) {
     let minRank = rank - 4000;

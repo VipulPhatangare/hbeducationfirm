@@ -17,8 +17,13 @@ const collegeSwiper = new Swiper(".collegeSwiper", {
 });
 
 
+
 document.getElementById('percentilePredictor').addEventListener('click',()=>{
     window.location.href = '/pcm/percentilePredictor';
+});
+
+document.getElementById('topCollgesPCM').addEventListener('click',()=>{
+    window.location.href = '/pcm/topCollegePCM';
 });
 
 //logout
