@@ -24,100 +24,186 @@
         <div class="updates-banner">
             <div class="blob blob-1"></div>
             <div class="blob blob-2"></div>
-            <div class="content">
-                <h2><i class="fas fa-bullhorn"></i> Important Updates</h2>
-                <p>MHT CET 2023 Round 1 Counseling starts on June 15th. Last date to register is June 10th.</p>
+            <div class="updates-container">
+                <div class="updates-track">
+                    <div class="update-item">
+                        <h2><i class="fas fa-bullhorn"></i> Important Update 1</h2>
+                        <p>MHT CET 2023 Round 1 Counseling starts on June 15th. Last date to register is June 10th.</p>
+                    </div>
+                    <div class="update-item">
+                        <h2><i class="fas fa-clock"></i> Important Update 2</h2>
+                        <p>Document verification centers will remain open from 10am to 5pm on all working days.</p>
+                    </div>
+                    <div class="update-item">
+                        <h2><i class="fas fa-exclamation-triangle"></i> Important Update 3</h2>
+                        <p>Last date for fee payment for Round 1 is June 12th. Late payments won't be accepted.</p>
+                    </div>
+                    <div class="update-item">
+                        <h2><i class="fas fa-info-circle"></i> Important Update 4</h2>
+                        <p>Seat allotment results for Round 1 will be declared on June 20th at 5pm.</p>
+                    </div>
+                    <!-- Duplicate first item for smooth looping -->
+                    <div class="update-item">
+                        <h2><i class="fas fa-bullhorn"></i> Important Update 1</h2>
+                        <p>MHT CET 2023 Round 1 Counseling starts on June 15th. Last date to register is June 10th.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Search Section -->
         <section class="search-section">
             <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Search for colleges...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="search-input" id="collegeSearch" placeholder="Search for colleges...">
+                <div class="search-results" id="searchResults"></div>
             </div>
         </section>
 
-        <!-- College Swiper Section -->
         <section class="college-section">
             <h2 class="section-title">Top Engineering Colleges</h2>
             <div class="swiper collegeSwiper">
                 <div class="swiper-wrapper">
                     <!-- College Cards will be dynamically loaded here -->
-                    <div class="swiper-slide" onclick="viewCollegeDetails('COEP')">
+                    <div class="swiper-slide" onclick="viewCollegeDetails(16006)">
                         <div class="college-card">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="COEP" class="college-image">
+                            <img src="/assets/coep.jpg" alt="COEP" class="college-image">
                             <h3 class="college-name">College of Engineering, Pune (COEP)</h3>
                             <p class="college-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
-                            <div class="college-details">
+                            <!-- <div class="college-details">
                                 <div class="college-rating">
                                     <i class="fas fa-star"></i>
                                     <span>4.8</span>
                                 </div>
                                 <p class="college-fees">Approx. Fees: ₹1.5 Lakhs/year</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     
-                    <div class="swiper-slide" onclick="viewCollegeDetails('VJTI')">
+                    <div class="swiper-slide" onclick="viewCollegeDetails(3012)">
                         <div class="college-card">
-                            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="VJTI" class="college-image">
+                            <img src="/assets/vjti.jpg" alt="VJTI" class="college-image">
                             <h3 class="college-name">Veermata Jijabai Technological Institute (VJTI)</h3>
                             <p class="college-location"><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</p>
-                            <div class="college-details">
+                            <!-- <div class="college-details">
                                 <div class="college-rating">
                                     <i class="fas fa-star"></i>
                                     <span>4.7</span>
                                 </div>
                                 <p class="college-fees">Approx. Fees: ₹1.2 Lakhs/year</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     
-                    <div class="swiper-slide" onclick="viewCollegeDetails('PICT')">
+                    <div class="swiper-slide" onclick="viewCollegeDetails(6271)">
                         <div class="college-card">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="PICT" class="college-image">
+                            <img src="/assets/pict.webp" alt="PICT" class="college-image">
                             <h3 class="college-name">Pune Institute of Computer Technology (PICT)</h3>
                             <p class="college-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
-                            <div class="college-details">
+                            <!-- <div class="college-details">
                                 <div class="college-rating">
                                     <i class="fas fa-star"></i>
                                     <span>4.6</span>
                                 </div>
                                 <p class="college-fees">Approx. Fees: ₹1.8 Lakhs/year</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     
-                    <div class="swiper-slide" onclick="viewCollegeDetails('SPIT')">
+                    <div class="swiper-slide" onclick="viewCollegeDetails(3215)">
                         <div class="college-card">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="SPIT" class="college-image">
-                            <h3 class="college-name">Sardar Patel Institute of Technology (SPIT)</h3>
+                            <img src="/assets/spit.jpg" alt="SPIT" class="college-image">
+                            <h3 class="college-name">Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology (SPIT)</h3>
                             <p class="college-location"><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</p>
-                            <div class="college-details">
+                            <!-- <div class="college-details">
                                 <div class="college-rating">
                                     <i class="fas fa-star"></i>
                                     <span>4.5</span>
                                 </div>
                                 <p class="college-fees">Approx. Fees: ₹2.0 Lakhs/year</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    
-                    <div class="swiper-slide" onclick="viewCollegeDetails('WCE')">
+
+                    <div class="swiper-slide" onclick="viewCollegeDetails(6276)">
                         <div class="college-card">
-                            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="WCE" class="college-image">
+                            <img src="/assets/cummins.jpg" alt="Cummins" class="college-image">
+                            <h3 class="college-name">MKSSS's Cummins College of Engineering for Women</h3>
+                            <p class="college-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
+                            <!-- <div class="college-details">
+                                <div class="college-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <p class="college-fees">Approx. Fees: ₹2.0 Lakhs/year</p>
+                            </div> -->
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide" onclick="viewCollegeDetails(3036)">
+                        <div class="college-card">
+                            <img src="/assets/ict.jpg" alt="ICT" class="college-image">
+                            <h3 class="college-name">Institute of Chemical Technology (ICT)</h3>
+                            <p class="college-location"><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</p>
+                            <!-- <div class="college-details">
+                                <div class="college-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <p class="college-fees">Approx. Fees: ₹2.0 Lakhs/year</p>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" onclick="viewCollegeDetails(6007)">
+                        <div class="college-card">
+                            <img src="/assets/walchand sangli.jpg" alt="WCE" class="college-image">
                             <h3 class="college-name">Walchand College of Engineering (WCE)</h3>
                             <p class="college-location"><i class="fas fa-map-marker-alt"></i> Sangli, Maharashtra</p>
-                            <div class="college-details">
+                            <!-- <div class="college-details">
                                 <div class="college-rating">
                                     <i class="fas fa-star"></i>
                                     <span>4.4</span>
                                 </div>
                                 <p class="college-fees">Approx. Fees: ₹1.1 Lakhs/year</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
+
+
+                    <div class="swiper-slide" onclick="viewCollegeDetails(6273)">
+                        <div class="college-card">
+                            <img src="/assets/vit.webp" alt="VIT" class="college-image">
+                            <h3 class="college-name">Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology (VIT)</h3>
+                            <p class="college-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
+                            <!-- <div class="college-details">
+                                <div class="college-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <p class="college-fees">Approx. Fees: ₹2.0 Lakhs/year</p>
+                            </div> -->
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide" onclick="viewCollegeDetails(6175)">
+                        <div class="college-card">
+                            <img src="/assets/pccoe.jpeg" alt="PCCOE" class="college-image">
+                            <h3 class="college-name">Pimpri Chinchwad Education Trust, Pimpri Chinchwad College of Engineering (PCCOE)</h3>
+                            <p class="college-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
+                            <!-- <div class="college-details">
+                                <div class="college-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <p class="college-fees">Approx. Fees: ₹2.0 Lakhs/year</p>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    
                 </div>
                 <!-- <div class="swiper-pagination"></div> -->
             </div>
@@ -132,7 +218,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="feature-title">Percentile Predictor</h3>
-                    <p class="feature-desc">Predict your MHT CET percentile based on your expected score and previous year trends</p>
+                    <p class="feature-desc">Predict your MHT CET percentile based on your MHT CET score.</p>
                     <button class="feature-btn" id="percentilePredictor">Predict Now</button>
                 </div>
                 
@@ -141,17 +227,8 @@
                         <i class="fas fa-trophy"></i>
                     </div>
                     <h3 class="feature-title">Top Colleges</h3>
-                    <p class="feature-desc">Discover the best engineering colleges based on your percentile and preferences</p>
+                    <p class="feature-desc">Discover the top engineering colleges in your city. </p>
                     <button class="feature-btn" id="topCollgesPCM">Explore</button>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <h3 class="feature-title">Branch-wise Cutoff</h3>
-                    <p class="feature-desc">Detailed cutoff information for all engineering branches across colleges</p>
-                    <button class="feature-btn">View Cutoffs</button>
                 </div>
                 
                 <div class="feature-card">
@@ -159,7 +236,7 @@
                         <i class="fas fa-university"></i>
                     </div>
                     <h3 class="feature-title">College Predictor</h3>
-                    <p class="feature-desc">Predict which colleges you can get based on your MHT CET scores</p>
+                    <p class="feature-desc">Predict colleges based on your MHT CET percentile.</p>
                     <button class="feature-btn" id="collegePredictorPCM">Predict Now</button>
                 </div>
                 
@@ -171,20 +248,11 @@
                     <p class="feature-desc">Generate optimized preference list for counseling rounds based on your priorities</p>
                     <button class="feature-btn" onclick="openPaymentModal()">Unlock Feature</button>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3 class="feature-title">Counseling Help</h3>
-                    <p class="feature-desc">Get step-by-step guidance through the MHT CET counseling process</p>
-                    <button class="feature-btn">Learn More</button>
-                </div>
             </div>
         </section>
 
         <!-- Media Section -->
-        <section class="media-section">
+        <!-- <section class="media-section">
             <h2 class="section-title">Latest Videos & Resources</h2>
             <div class="media-container">
                 <div class="media-card">
@@ -211,7 +279,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </div>
 
     <!-- Payment Modal -->
@@ -244,6 +312,40 @@
             <button class="payment-btn" onclick="proceedToPayment()">Proceed to Payment</button>
         </div>
     </div>
+
+        <!-- Social Media Section -->
+    <footer class="social-section">
+        <div class="social-container">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/harshali_bhandari_2430/" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@HB_Educational_Firm" class="social-icon" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <!-- <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a> -->
+            </div>
+            <!-- <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div> -->
+            <p class="copyright">© 2025 EduPath. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="/js/pcm.js"></script>

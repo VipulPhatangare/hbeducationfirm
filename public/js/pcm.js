@@ -16,6 +16,150 @@ const collegeSwiper = new Swiper(".collegeSwiper", {
     },
 });
 
+document.addEventListener('DOMContentLoaded', async function () {
+  await collegeNames();
+});
+
+
+let colleges = [];
+
+async function collegeNames() {
+    try {
+        const response = await fetch('/pcm/collegeNames');
+        colleges = await response.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const searchInput = document.getElementById('collegeSearch');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    searchResults.innerHTML = '';
+    
+    if (searchTerm.length < 2) {
+        searchResults.style.display = 'none';
+        return;
+    }
+    
+    const filteredColleges = colleges.filter(college => 
+        college.college_name.toLowerCase().includes(searchTerm)
+    );
+    
+    if (filteredColleges.length === 0) {
+        searchResults.innerHTML = '<div class="search-result-item">No colleges found</div>';
+        searchResults.style.display = 'block';
+        return;
+    }
+    
+    filteredColleges.forEach(college => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.innerHTML = `
+            <div class="college-name">${college.college_name}</div>
+        `;
+        resultItem.addEventListener('click', () => {
+            viewCollegeDetails(college.college_id);
+        });
+        searchResults.appendChild(resultItem);
+    });
+    
+    searchResults.style.display = 'block';
+});
+
+// Close search results when clicking outside
+document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = 'none';
+    }
+});
+
+// Show results when search input is focused
+searchInput.addEventListener('focus', function() {
+    if (this.value.length >= 2 && searchResults.children.length > 0) {
+        searchResults.style.display = 'block';
+    }
+});
+
+
+// Auto-scrolling updates with infinite loop
+let currentUpdate = 0;
+const updateItems = document.querySelectorAll('.update-item');
+const updatesTrack = document.querySelector('.updates-track');
+const totalUpdates = updateItems.length - 1; // Subtract 1 because we duplicated the first item
+const updateWidth = 100; // 100% width per item
+let isTransitioning = false;
+
+function scrollToNextUpdate() {
+    if (isTransitioning) return;
+    
+    currentUpdate++;
+    updatesTrack.style.transition = 'transform 0.5s ease';
+    updatesTrack.style.transform = `translateX(-${currentUpdate * updateWidth}%)`;
+    isTransitioning = true;
+    
+    // When we reach the duplicate first item, instantly reset to the real first item
+    if (currentUpdate === totalUpdates) {
+        setTimeout(() => {
+            updatesTrack.style.transition = 'none';
+            currentUpdate = 0;
+            updatesTrack.style.transform = `translateX(0)`;
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 50);
+        }, 500);
+    } else {
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 500);
+    }
+}
+
+// Start auto-scrolling (change every 5 seconds)
+let updateInterval = setInterval(scrollToNextUpdate, 5000);
+
+// Pause auto-scrolling when user hovers over updates
+updatesTrack.addEventListener('mouseenter', () => {
+    clearInterval(updateInterval);
+});
+
+// Resume auto-scrolling when user leaves
+updatesTrack.addEventListener('mouseleave', () => {
+    updateInterval = setInterval(scrollToNextUpdate, 5000);
+});
+
+// Handle touch events for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+updatesTrack.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    clearInterval(updateInterval);
+});
+
+updatesTrack.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    updateInterval = setInterval(scrollToNextUpdate, 5000);
+});
+
+function handleSwipe() {
+    const threshold = 50; // minimum swipe distance
+    
+    if (touchStartX - touchEndX > threshold) {
+        // Swipe left - next update
+        scrollToNextUpdate();
+    } else if (touchEndX - touchStartX > threshold) {
+        // Swipe right - previous update
+        if (currentUpdate > 0) {
+            currentUpdate--;
+            updatesTrack.style.transform = `translateX(-${currentUpdate * updateWidth}%)`;
+        }
+    }
+}
+
 
 
 document.getElementById('percentilePredictor').addEventListener('click',()=>{
@@ -49,10 +193,8 @@ document.getElementById('collegePredictorPCM').addEventListener('click',()=>{
 
 
 // View College Details
-function viewCollegeDetails(collegeName) {
-    // In actual implementation, this would redirect to college details page
-    alert(`Viewing details for ${collegeName}. This would redirect to the college details page.`);
-    // window.location.href = `/college/${collegeName.toLowerCase()}`;
+async function viewCollegeDetails(id) {
+    window.location.href = `/collegePagePCM/${id}`;
 }
 
 // Payment Modal Functions
@@ -128,3 +270,5 @@ window.onclick = function(event) {
         closePaymentModal();
     }
 }
+
+

@@ -106,45 +106,6 @@ nav {
     right: -50px;
 }
 
-/* Search Section */
-.search-section {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.search-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto 3rem;
-}
-
-.search-input {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    border-radius: 50px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    color: white;
-    font-size: 1.1rem;
-    padding-left: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: #4a90e2;
-}
-
-.search-icon {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #b8c2d8;
-}
-
 /* College Swiper */
 .college-section {
     padding: 2rem;
@@ -585,12 +546,12 @@ nav {
 .search-container {
     position: relative;
     max-width: 800px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 0;
 }
 
 .search-input {
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 50px;
     border-radius: 50px;
     border: none;
     background: rgba(255, 255, 255, 0.1);
@@ -612,6 +573,15 @@ nav {
     top: 50%;
     transform: translateY(-50%);
     color: #b8c2d8;
+}
+
+.search-container i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b8c2d8;
+    z-index: 2;
 }
 
 /* College Swiper */
@@ -951,4 +921,173 @@ nav {
 
 .logout-btn:hover {
     background: #4a90e2;
+}
+
+
+/* Social Media Section */
+.social-section {
+    background: linear-gradient(180deg, #0e0e24 0%, #0a0a1a 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(26, 58, 143, 0.3);
+}
+
+.social-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(26, 58, 143, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    transition: all 0.3s;
+    border: 1px solid rgba(26, 58, 143, 0.5);
+}
+
+.social-icon:hover {
+    background: #4a90e2;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(26, 58, 143, 0.3);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.footer-links a {
+    color: #b8c2d8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #4a90e2;
+}
+
+.copyright {
+    color: #b8c2d8;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Styles for Social Section */
+@media (max-width: 768px) {
+    .social-icons {
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .footer-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Updates Banner */
+.updates-banner {
+    background: linear-gradient(90deg, #1a3a8f, #4a90e2);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    height: 120px;
+}
+
+.updates-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.updates-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.update-item {
+    flex: 0 0 100%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 100%;
+}
+
+.update-item h2 {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.update-item p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.search-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 0;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0e0e24;
+    border: 1px solid #1a3a8f;
+    border-radius: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+}
+
+.search-result-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-result-item:hover {
+    background: rgba(26, 58, 143, 0.4);
+}
+
+.search-result-item .college-name {
+    font-weight: 600;
+    margin-bottom: 4px;
 }

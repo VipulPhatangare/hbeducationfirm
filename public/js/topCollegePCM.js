@@ -110,7 +110,7 @@ function displayColleges(colleges) {
         row.innerHTML = `
             <td>${i + 1}</td>
             <td>${college.college_id}</td>
-            <td>${college.college_name}</td>
+            <td><a class="college_ancor_tag" onclick="viewCollegeDetails(${college.college_id})">${college.college_name}</a></td>
         `;
         
         collegeTableBody.appendChild(row);
@@ -118,6 +118,11 @@ function displayColleges(colleges) {
 
     resultsContainer.style.display = 'block';
     selectedCountElement.textContent = `${colleges.length} colleges found`;
+}
+
+// View College Details
+function viewCollegeDetails(id) {
+    window.location.href = `/collegePagePCM/${id}`;
 }
 
 function updatePagination(totalColleges) {
@@ -235,25 +240,6 @@ async function fetchUniversities() {
 }
 
 
-// Home university
-async function fetchUniversity() {
-    try {
-        const response = await fetch('/collegePredictorPCM/fetchUniversity');
-        const data = await response.json();
-
-        homeuniversitySelect.innerHTML = `<option value="" disabled selected>Select your home university</option>`;
-
-        data.forEach(element => {
-            const option = document.createElement('option');
-            option.value = `${element.university}`;
-            option.innerHTML = `${element.university}`;
-            homeuniversitySelect.appendChild(option);
-        });
-
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 function processCities(citiesArray) {
 
@@ -289,46 +275,6 @@ async function fetchCities() {
             </label>
         `;
     }
-}
-
-// Mock Data Generator (replace with actual API calls in production)
-function generateMockColleges(filters) {
-    const mockData = [];
-    const universities = filters.university === "All" ? [
-        "University of Mumbai",
-        "Pune University",
-        "Shivaji University",
-        "Nagpur University"
-    ] : [filters.university];
-    
-    const cities = filters.cities.includes("All") ? [
-        "Mumbai",
-        "Pune",
-        "Nagpur",
-        "Nashik",
-        "Aurangabad"
-    ] : filters.cities;
-    
-    let count = 1;
-    
-    universities.forEach(university => {
-        cities.forEach(city => {
-            // Generate 5-10 colleges per city-university combination
-            const numColleges = 5 + Math.floor(Math.random() * 6);
-            
-            for (let i = 1; i <= numColleges; i++) {
-                mockData.push({
-                    code: `COL${count.toString().padStart(3, '0')}`,
-                    name: `${city} College ${i} (${university})`,
-                    university: university,
-                    city: city
-                });
-                count++;
-            }
-        });
-    });
-    
-    return mockData;
 }
 
 

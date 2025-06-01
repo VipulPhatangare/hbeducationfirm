@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Information</title>
+    <link rel="stylesheet" href="/css/collegePagePCM.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Edu<span>Path</span></a>
+            <button class="logout-btn">
+                <span>Back</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- College Information Card -->
+            <div class="college-info-card">
+                <div class="college-info-header">
+                    <h1 class="college-info-title" id="college_name"></h1>
+                </div>
+                <div class="college-info-content" id="college_info_content">
+                    
+                </div>
+            </div>
+
+            <!-- Branch Information Table -->
+            <div class="branch-table-container">
+                <h2 class="branch-table-title">Branch-wise Cutoff</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Branch</th>
+                            <th>General Cutoff</th>
+                            <th>OBC Cutoff</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_body">
+                        <!-- <tr>
+                            <td>Computer Science and Engineering</td>
+                            <td class="cutoff-high">95.3%</td>
+                            <td class="cutoff-high">92.1%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Artificial Intelligence</td>
+                            <td class="cutoff-high">94.8%</td>
+                            <td class="cutoff-high">91.5%</td>
+                    
+                        </tr>
+                        <tr>
+                            <td>Information Technology</td>
+                            <td class="cutoff-high">90.2%</td>
+                            <td class="cutoff-high">86.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Electronics and Communication Engineering</td>
+                            <td class="cutoff-high">86.3%</td>
+                            <td class="cutoff-high">82.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Mechanical Engineering</td>
+                            <td class="cutoff-high">84.1%</td>
+                            <td class="cutoff-high">80.5%</td>
+                        </tr>
+                         -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script>
+        const id = "<%= id %>";
+    </script>
+    <script src="/js/collegePagePCM.js"></script>
+    
+</body>
+</html>
+

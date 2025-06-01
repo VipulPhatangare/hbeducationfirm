@@ -45,31 +45,6 @@ function college_filter_by_city(colleges, cityArray) {
   );
 }
 
-// router.post('/topCollegeList',(req,res)=>{
-//   const formData = req.body;
-//   console.log(formData);
-//   let q = '';
-//   if(formData.university != 'All'){
-//     q = `SELECT college_id, college_name, city FROM college_info_with_points WHERE university = '${formData.university}';`;
-//   }else{
-//     q = `SELECT college_id, college_name, city FROM college_info_with_points;`
-//   }
-  
-//   db.query(q,(err,result)=>{
-//     if(err){
-//       console.log(err);
-//     }else{
-//       let colleges;
-//       if(formData.cities[0] != 'All'){
-//         colleges = college_filter_by_city(result, formData.cities);
-//         return res.json({colleges});
-//       }
-//       return res.json(result);
-//     }
-//   });
-// });
-
-
 router.post('/topCollegeList', async (req, res) => {
   try {
     const formData = req.body;
@@ -99,7 +74,7 @@ router.post('/topCollegeList', async (req, res) => {
     }
 
     colleges.sort((a, b) => b.college_points - a.college_points);
-    console.log(colleges);
+    // console.log(colleges);
     return res.json(colleges);
     
   } catch (err) {
@@ -108,5 +83,26 @@ router.post('/topCollegeList', async (req, res) => {
   }
 });
 
+
+
+
+router.get('/collegeNames', async (req, res) => {
+  try {
+    const { data, error } = await supabase
+      .from('college_info_with_points')
+      .select('college_id, college_name');
+
+    if (error) {
+      console.error('Supabase error:', error);
+      return res.status(500).json({ error: 'Database error' });
+    }
+
+    return res.json(data);
+    
+  } catch (err) {
+    console.error('Server error:', err);
+    return res.status(500).json({ error: 'Server error' });
+  }
+});
 
 module.exports = router;

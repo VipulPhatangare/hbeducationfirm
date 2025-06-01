@@ -45,6 +45,10 @@ app.use('/pcm',pcmRoutes);
 const collegePredictorPCMRoutes = require('./routes/collegePredictorPCMroute'); 
 app.use('/collegePredictorPCM',collegePredictorPCMRoutes);
 
+const collegePagePCMRoutes = require('./routes/collegePagePCMroute'); 
+app.use('/collegePagePCM',collegePagePCMRoutes);
+
+
 
 app.listen(port,()=>{
     console.log('server listing at port 8080');

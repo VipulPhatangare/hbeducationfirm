@@ -207,12 +207,206 @@ select:focus {
     padding-right: 0.5rem;
 }
 
-/* Table Styles */
+/* College Cards */
+.college-card {
+    background: rgba(26, 58, 143, 0.1);
+    border: 1px solid rgba(26, 58, 143, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.college-card.selected {
+    border-color: #4a90e2;
+    background: rgba(26, 58, 143, 0.3);
+}
+
+.college-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.college-code {
+    font-weight: 600;
+    color: #4a90e2;
+}
+
+.college-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.college-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.college-detail {
+    flex: 1;
+    min-width: 100px;
+}
+
+.college-detail-label {
+    color: #b8c2d8;
+    font-size: 0.8rem;
+}
+
+/* Finalize Button */
+.finalize-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+}
+
+.finalize-btn:hover {
+    background-color: #218838;
+}
+
+/* Branch Selection */
+.custom-branch-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    border: 1px dashed #4a90e2;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
+}
+
+.custom-branch-btn:hover {
+    background-color: rgba(74, 144, 226, 0.2);
+}
+
+.selected-branches-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.branch-tag {
+    background-color: rgba(74, 144, 226, 0.2);
+    color: #4a90e2;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.branch-tag button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Card Checkbox */
+.card-checkbox {
+    accent-color: #4a90e2;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* College Info Styles */
+.college-info-card {
+    background: rgba(26, 58, 143, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(26, 58, 143, 0.3);
+}
+
+.college-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.college-info-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4a90e2;
+}
+
+.college-info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: 0.5rem;
+}
+
+.info-label {
+    color: #b8c2d8;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Branch Table Styles */
+.branch-table-container {
+    background: rgba(26, 58, 143, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(26, 58, 143, 0.3);
+}
+
+.branch-table-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4a90e2;
+    margin-bottom: 1.5rem;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1rem;
-    color: white;
 }
 
 th, td {
@@ -222,45 +416,25 @@ th, td {
 }
 
 th {
-    background-color: rgba(26, 58, 143, 0.3);
+    background-color: rgba(26, 58, 143, 0.4);
+    color: #ffffff;
     font-weight: 600;
-    color: #4a90e2;
 }
 
 tr:hover {
     background-color: rgba(26, 58, 143, 0.1);
 }
 
-/* Pagination Styles */
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
-    gap: 0.5rem;
+.cutoff-high {
+    color: #28a745;
 }
 
-.pagination button {
-    padding: 0.5rem 1rem;
-    background-color: rgba(26, 58, 143, 0.3);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
+.cutoff-medium {
+    color: #ffc107;
 }
 
-.pagination button:hover {
-    background-color: rgba(26, 58, 143, 0.5);
-}
-
-.pagination button.active {
-    background-color: #4a90e2;
-    border-color: #4a90e2;
-}
-
-.pagination button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.cutoff-low {
+    color: #dc3545;
 }
 
 /* Responsive Styles */
@@ -283,12 +457,21 @@ tr:hover {
         gap: 0.5rem;
     }
 
+    .college-details {
+        flex-direction: column;
+    }
+
+    .college-detail {
+        margin-bottom: 0.5rem;
+        min-width: 100%;
+    }
+
+    .college-info-content {
+        grid-template-columns: 1fr;
+    }
+    
     table {
         display: block;
         overflow-x: auto;
     }
-}
-
-.college_ancor_tag{
-    cursor: pointer;
 }
