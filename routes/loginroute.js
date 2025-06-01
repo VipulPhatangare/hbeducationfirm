@@ -15,7 +15,7 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/:examtype',(req,res)=>{
-  console.log(req.params);
+  // console.log(req.params);
   res.render('login');
 });
 

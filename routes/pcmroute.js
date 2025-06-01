@@ -48,7 +48,7 @@ function college_filter_by_city(colleges, cityArray) {
 router.post('/topCollegeList', async (req, res) => {
   try {
     const formData = req.body;
-    console.log(formData);
+    // console.log(formData);
 
     let query = supabase
       .from('college_info_with_points')

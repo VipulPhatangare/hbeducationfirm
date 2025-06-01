@@ -962,7 +962,7 @@ async function getColleges(formData) {
             
             const colleges =  college_filter(data, formData);
             colleges.sort((a, b) => b.points - a.points);
-            console.log(colleges);
+            // console.log(colleges);
             return colleges;
         }
                
@@ -1030,7 +1030,7 @@ function college_filter(colleges, formData){
 router.post('/College_list', async(req,res)=>{
 
     const formData = req.body;
-    console.log(formData);
+    // console.log(formData);
     clear_new_data_function();
 
     try {
