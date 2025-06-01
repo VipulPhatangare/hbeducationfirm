@@ -48,7 +48,8 @@ app.use('/collegePredictorPCM',collegePredictorPCMRoutes);
 const collegePagePCMRoutes = require('./routes/collegePagePCMroute'); 
 app.use('/collegePagePCM',collegePagePCMRoutes);
 
-
+const branchwiseCutoffPCMRoutes = require('./routes/branchwiseCutoffPCMroute'); 
+app.use('/branchwiseCutoffPCM',branchwiseCutoffPCMRoutes);
 
 app.listen(port,()=>{
     console.log('server listing at port 8080');

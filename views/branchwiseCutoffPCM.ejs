@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHT CET Branch-wise Cutoff</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet">
+    <link href="/css/branchwiseCutoffPCM.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Edu<span>Path</span></a>
+            <button class="logout-btn" id="back-btn">Back</button>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h1 class="page-title">MHT CET <span>Branch-wise Cutoff</span></h1>
+            
+            <form id="cutoffForm">
+                <div class="form-group">
+                    <label for="university">Home University</label>
+                    <select id="university" class="form-control" required>
+                        <option value="" disabled selected>Select University</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="branch">Branch Category</label>
+                    <select id="branch" class="form-control" required>
+                        <option value="" >Select Branch</option>
+                        <option value="CIVIL">Civil</option>
+                        <option value="COMP">Computer Science</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="COMPAI">CSE (Artificial Intelligence)</option>
+                        <option value="AI">Artificial Intelligence</option>
+                        <option value="ELECTRICAL">Electrical</option>
+                        <option value="ENTC">ENTC</option>
+                        <option value="MECH">Mechanical</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+
+                <div id="other-branch-container" class="form-group hidden">
+                    <label for="other-branch">Other Branch</label>
+                    <select id="other-branch" class="form-control">
+                        <option value="ALL" selected>All Other Branches</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="caste">Caste</label>
+                    <select id="caste" class="form-control">
+                        <option value="OPEN" selected>OPEN</option>
+                        <option value="OBC">OBC</option>
+                        <option value="SEBC">SEBC</option>
+                        <option value="SC">SC</option>
+                        <option value="ST">ST</option>
+                        <option value="NT1">NT1</option>
+                        <option value="NT2">NT2</option>
+                        <option value="NT3">NT3</option>
+                        <option value="EWS">EWS</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="gender" value="MALE" checked>
+                            <span>Male</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="FEMALE">
+                            <span>Female</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="special-category">Special Category</label>
+                    <select id="special-category" class="form-control">
+                        <option value="NO" selected>No</option>
+                        <option value="PWD">PWD</option>
+                        <option value="ORPHAN">Orphan</option>
+                        <option value="DEFENCE">Defence</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>City</label>
+                    <div class="checkbox-group" id="city-container">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="city" value="All" checked>
+                            <span>All</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="button" id="search-btn" class="submit-btn">Search</button>
+            </form>
+            
+            <div class="results-container" id="results-container">
+                <div class="results-header">
+                    <div class="results-title">Cutoff Results</div>
+                </div>
+                <div class="college-cards" id="collegeCards"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/branchwiseCutoffPCM.js"></script>
+</body>
+</html>

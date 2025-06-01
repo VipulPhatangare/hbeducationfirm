@@ -29,6 +29,14 @@ router.get('/collegePredictorPCM',(req,res)=>{
   }
 });
 
+router.get('/branchCutoffs',(req,res)=>{
+  if (req.session.user) {
+    res.render('branchwiseCutoffPCM'); 
+  }else{
+    res.send('Error');
+  }
+});
+
 router.get('/topCollegePCM',(req,res)=>{
   if (req.session.user) {
     res.render('topCollegePCM'); 

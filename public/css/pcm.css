@@ -1091,3 +1091,103 @@ nav {
     font-weight: 600;
     margin-bottom: 4px;
 }
+
+/* Branch Cutoff Modal Styles */
+.cutoff-modal {
+    max-width: 800px;
+    width: 95%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.cutoff-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: sticky;
+    top: 0;
+    background: #0e0e24;
+    padding: 1rem 0;
+    z-index: 1;
+}
+
+.college-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.college-selector select {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: rgba(26, 58, 143, 0.2);
+    color: white;
+    border: 1px solid #1a3a8f;
+}
+
+.cutoff-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.cutoff-table th, .cutoff-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(26, 58, 143, 0.5);
+}
+
+.cutoff-table th {
+    background: rgba(26, 58, 143, 0.3);
+    color: #4a90e2;
+    position: sticky;
+    top: 68px;
+}
+
+.cutoff-table tr:hover {
+    background: rgba(26, 58, 143, 0.1);
+}
+
+.branch-name {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.cutoff-score {
+    font-weight: 600;
+    color: #ffc107;
+}
+
+.trend-icon {
+    margin-left: 5px;
+}
+
+.trend-up {
+    color: #ff5e5e;
+}
+
+.trend-down {
+    color: #5eff7d;
+}
+
+.trend-neutral {
+    color: #b8c2d8;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .cutoff-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .cutoff-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

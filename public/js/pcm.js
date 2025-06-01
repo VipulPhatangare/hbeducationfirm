@@ -162,6 +162,10 @@ function handleSwipe() {
 
 
 
+document.getElementById('branchCutoffs').addEventListener('click',()=>{
+    window.location.href = '/pcm/branchCutoffs';
+});
+
 document.getElementById('percentilePredictor').addEventListener('click',()=>{
     window.location.href = '/pcm/percentilePredictor';
 });
