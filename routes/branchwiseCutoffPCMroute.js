@@ -67,7 +67,7 @@ router.get('/city_fetch', async (req, res) => {
 router.post('/branch_wise_cutoff', async(req,res)=>{
 
     const formData = req.body;
-    console.log(formData);
+    // console.log(formData);
 
     formData.homeUniversity = formData.university;
     let caste_column = '';
