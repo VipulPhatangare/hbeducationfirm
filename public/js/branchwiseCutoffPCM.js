@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 const data = await response.json();
-                console.log(data);
+                // console.log(data);
                 displayResults(data, formData);
 
             } catch (error) {
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>`);
             }
 
-            if(formData.gender == 'FEMALE'){
+            if(formData.gender == 'Female'){
                 if(formData.caste == 'EWS'){
                     cutoffItems.push(`<div class="college-detail">
                         <div class="college-detail-label">LOPEN</div>

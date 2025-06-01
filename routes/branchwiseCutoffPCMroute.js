@@ -534,7 +534,7 @@ router.post('/branch_wise_cutoff', async(req,res)=>{
             TRUE
         `;
     }
-
+    // console.log(caste_column);
     try {
         const { data, error } = await supabase.rpc('branch_wise_cutoff', {
             homeuniversity: formData.university,
