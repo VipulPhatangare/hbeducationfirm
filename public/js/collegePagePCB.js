@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 async function collegeInfoFetch() {
     try {
         const college_code = id;
-        const response = await fetch('/collegePagePCM/collegeInfo', {
+        const response = await fetch('/collegePagePCB/collegeInfo', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -56,7 +56,7 @@ async function collegeInfoFetch() {
 async function collegeBranchInfo() {
     try {
         const college_code = id;
-        const response = await fetch('/collegePagePCM/collegeBranchInfo', {
+        const response = await fetch('/collegePagePCB/collegeBranchInfo', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -68,7 +68,7 @@ async function collegeBranchInfo() {
         const table_body = document.getElementById('table_body');
         data.forEach(element => {
             const table_rows = document.createElement('tr');
-            if(element.gender_flag){
+            if(element.gender_flag == 'F'){
                 table_rows.innerHTML = `
                     <td>${element.branch_name}</td>
                     <td class="cutoff-high">${element.lopen.toFixed(2)}%</td>
@@ -81,6 +81,7 @@ async function collegeBranchInfo() {
                     <td class="cutoff-high">${element.gobc.toFixed(2)}%</td>
                 `;
             }
+            
             table_body.appendChild(table_rows);            
         });
 

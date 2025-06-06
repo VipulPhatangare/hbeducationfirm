@@ -479,6 +479,58 @@ router.post('/branch_wise_cutoff', async(req,res)=>{
         `;
     }
 
+    // GVJ
+    if (formData.caste == 'VJ' && formData.gender == 'Male') {
+        caste_column += `
+            CASE
+                WHEN r."GVJS" <> 0 AND r."GVJO" = 0 AND r."GVJH" = 0 THEN r."GVJS"::TEXT
+                WHEN c.university = '${formData.homeUniversity}' THEN r."GVJH"::TEXT
+                ELSE r."GVJO"::TEXT
+            END || ' (' || COALESCE(
+                        (SELECT m.percentile 
+                         FROM merit_list AS m 
+                         WHERE m."Rank" = 
+                             CASE
+                                 WHEN r."GVJS" <> 0 AND r."GVJO" = 0 AND r."GVJH" = 0 THEN r."GVJS"
+                                 WHEN c.university = '${formData.homeUniversity}' THEN r."GVJH"
+                                 ELSE r."GVJO"
+                             END
+                         LIMIT 1), '0'
+                    ) || ')' AS gvj,
+        `;
+
+    }else{
+        caste_column += `
+            NULL::TEXT AS gvj,
+        `;
+    }
+
+    // LVJ
+    if (formData.caste == 'VJ' && formData.gender == 'Female') {
+        caste_column += `
+            CASE
+                WHEN r."LVJS" <> 0 AND r."LVJO" = 0 AND r."LVJH" = 0 THEN r."LVJS"::TEXT
+                WHEN c.university = '${formData.homeUniversity}' THEN r."LVJH"::TEXT
+                ELSE r."LVJO"::TEXT
+            END || ' (' || COALESCE(
+                        (SELECT m.percentile 
+                         FROM merit_list AS m 
+                         WHERE m."Rank" = 
+                             CASE
+                                 WHEN r."LVJS" <> 0 AND r."LVJO" = 0 AND r."LVJH" = 0 THEN r."LVJS"
+                                 WHEN c.university = '${formData.homeUniversity}' THEN r."LVJH"
+                                 ELSE r."LVJO"
+                             END
+                         LIMIT 1), '0'
+                    ) || ')' AS lvj,
+        `;
+
+    }else{
+        caste_column += `
+            NULL::TEXT AS lvj,
+        `;
+    }
+
     // PWD
     if (formData.specialCategory == 'PWD') {
         caste_column += `

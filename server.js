@@ -27,8 +27,15 @@ const port = process.env.PORT
 
 // routes
 app.get('/',isLoggedIn,(req,res)=>{
-  res.render('pcm');
+  if(session.user.exam == 'MHTCETPCM'){
+    res.render('pcm');
+  }else if(session.user.exam == 'MHTCETPCB'){
+    res.render('pcb');
+  }else if(session.user.exam == 'NEET'){
+    res.render('pcm');
+  }
 });
+
 const registerRoutes = require('./routes/registerroute'); 
 app.use('/register',registerRoutes);
 
@@ -41,12 +48,20 @@ app.use('/verification',verificationRoutes);
 const pcmRoutes = require('./routes/pcmroute'); 
 app.use('/pcm',pcmRoutes);
 
+const pcbRoutes = require('./routes/pcbroute'); 
+app.use('/pcb',pcbRoutes);
 
 const collegePredictorPCMRoutes = require('./routes/collegePredictorPCMroute'); 
 app.use('/collegePredictorPCM',collegePredictorPCMRoutes);
 
+const collegePredictorPCBRoutes = require('./routes/collegePredictorPCBroute'); 
+app.use('/collegePredictorPCB',collegePredictorPCBRoutes);
+
 const collegePagePCMRoutes = require('./routes/collegePagePCMroute'); 
 app.use('/collegePagePCM',collegePagePCMRoutes);
+
+const collegePagePCBRoutes = require('./routes/collegePagePCBroute'); 
+app.use('/collegePagePCB',collegePagePCBRoutes);
 
 const branchwiseCutoffPCMRoutes = require('./routes/branchwiseCutoffPCMroute'); 
 app.use('/branchwiseCutoffPCM',branchwiseCutoffPCMRoutes);

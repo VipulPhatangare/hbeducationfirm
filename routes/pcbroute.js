@@ -3,7 +3,7 @@ const router = express.Router();
 const {db, supabase} = require('../database/db');
 
 router.get('/',(req,res)=>{
-  res.render('pcm');
+  res.render('pcb');
 });
 
 router.get('/logout',(req,res)=>{
@@ -13,17 +13,10 @@ router.get('/logout',(req,res)=>{
   });
 });
 
-router.get('/percentilePredictor',(req,res)=>{
-  if (req.session.user) {
-    res.render('percentilepredictor'); 
-  }else{
-    res.send('Error');
-  }
-});
 
-router.get('/collegePredictorPCM',(req,res)=>{
+router.get('/collegePredictorPCB',(req,res)=>{
   if (req.session.user) {
-    res.render('collegePredictorPCM'); 
+    res.render('collegePredictorPCB'); 
   }else{
     res.send('Error');
   }
@@ -37,14 +30,13 @@ router.get('/branchCutoffs',(req,res)=>{
   }
 });
 
-router.get('/topCollegePCM',(req,res)=>{
+router.get('/topCollegePCB',(req,res)=>{
   if (req.session.user) {
-    res.render('topCollegePCM'); 
+    res.render('topCollegePCB'); 
   }else{
     res.send('Error');
   }
 });
-
 
 function college_filter_by_city(colleges, cityArray) {
   const normalizedCityArray = cityArray.map(c => c.trim().toUpperCase());
@@ -60,8 +52,8 @@ router.post('/topCollegeList', async (req, res) => {
     // console.log(formData);
 
     let query = supabase
-      .from('college_info_with_points')
-      .select('college_id, college_name, city,college_points,university');
+      .from('phamacy_college_info')
+      .select('college_id, college_name, city,points,university');
 
     // Apply university filter if not 'All'
     if (formData.university !== 'All') {
@@ -82,7 +74,7 @@ router.post('/topCollegeList', async (req, res) => {
       colleges = college_filter_by_city(data, formData.cities);
     }
 
-    colleges.sort((a, b) => b.college_points - a.college_points);
+    colleges.sort((a, b) => b.points - a.points);
     // console.log(colleges);
     return res.json(colleges);
     
@@ -93,10 +85,30 @@ router.post('/topCollegeList', async (req, res) => {
 });
 
 
+router.get('/fetchUniversity', async (req, res) => {
+    try {
+        const { data, error } = await supabase
+            .from('phamacy_college_info')
+            .select('university')
+            .not('university', 'is', null)
+            .order('university', { ascending: true });
+        
+        if (error) throw error;
+        
+        // Get distinct universities
+        const distinctUniversities = [...new Set(data.map(item => item.university))];
+        // console.log(distinctUniversities.map(univ => ({ university: univ })))
+        res.json(distinctUniversities.map(univ => ({ university: univ })));
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to fetch universities' });
+    }
+});
+
 router.get('/collegeNames', async (req, res) => {
   try {
     const { data, error } = await supabase
-      .from('college_info_with_points')
+      .from('phamacy_college_info')
       .select('college_id, college_name');
 
     if (error) {
@@ -105,6 +117,26 @@ router.get('/collegeNames', async (req, res) => {
     }
 
     return res.json(data);
+    
+  } catch (err) {
+    console.error('Server error:', err);
+    return res.status(500).json({ error: 'Server error' });
+  }
+});
+
+router.get('/fetchcity', async (req, res) => {
+  try {
+    const { data, error } = await supabase
+            .from('phamacy_college_info')
+            .select('city')
+            .not('city', 'is', null)
+            .order('city', { ascending: true });
+        
+        if (error) throw error;
+
+    const distinctCities = [...new Set(data.map(item => item.city.trim()))];
+    // console.log(distinctCities.map(city => ({ city })));
+    res.json(distinctCities.map(city => ({ city })));
     
   } catch (err) {
     console.error('Server error:', err);

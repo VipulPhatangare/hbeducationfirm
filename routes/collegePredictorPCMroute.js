@@ -118,10 +118,10 @@ async function getSelectedBranchCode(selected_branches) {
 
 
 function calculateRankRange(rank) {
-    let minRank = rank - 4000;
-    let maxRank = rank + 12000;
+    let minRank = rank - 3000;
+    let maxRank = rank + 25000;
 
-    if (rank < 4000) {
+    if (rank < 3000) {
         minRank = 0;
     }
 
@@ -165,8 +165,6 @@ const new_data_of_student = {
     maxRank : 0,
     selected_branches_code : []
 };
-
-
 
 
 async function getColleges(formData) {
@@ -870,6 +868,96 @@ async function getColleges(formData) {
         `;
     }
 
+    // GVJ
+    if (formData.caste == 'VJ' && formData.gender == 'Male') {
+        caste_column += `
+            CASE
+                WHEN r."GVJS" <> 0 AND r."GVJO" = 0 AND r."GVJH" = 0 THEN r."GVJS"::TEXT
+                WHEN c.university = '${formData.homeUniversity}' THEN r."GVJH"::TEXT
+                ELSE r."GVJO"::TEXT
+            END || ' (' || COALESCE(
+                        (SELECT m.percentile 
+                         FROM merit_list AS m 
+                         WHERE m."Rank" = 
+                             CASE
+                                 WHEN r."GVJS" <> 0 AND r."GVJO" = 0 AND r."GVJH" = 0 THEN r."GVJS"
+                                 WHEN c.university = '${formData.homeUniversity}' THEN r."GVJH"
+                                 ELSE r."GVJO"
+                             END
+                         LIMIT 1), '0'
+                    ) || ')' AS gvj,
+        `;
+
+        caste_condition += `
+            (
+                CASE 
+                    WHEN r."GVJS" <> 0 AND r."GVJO" = 0 AND r."GVJH" = 0 THEN r."GVJS"
+                    WHEN c.university = '${formData.homeUniversity}' THEN r."GVJH"
+                    ELSE r."GVJO"
+                END BETWEEN ${new_data_of_student.minRank} AND ${new_data_of_student.maxRank}
+                OR 
+                CASE 
+                    WHEN r."GVJS" <> 0 AND r."GVJO" = 0 AND r."GVJH" = 0 THEN r."GVJS"
+                    WHEN c.university = '${formData.homeUniversity}' THEN r."GVJH"
+                    ELSE r."GVJO"
+                END = 0
+            ) AND
+        `;
+    }else{
+        caste_column += `
+            NULL::TEXT AS gvj,
+        `;
+        caste_condition += `
+            TRUE AND
+        `;
+    }
+
+
+    // LVJ
+    if (formData.caste == 'VJ' && formData.gender == 'Female') {
+        caste_column += `
+            CASE
+                WHEN r."LVJS" <> 0 AND r."LVJO" = 0 AND r."LVJH" = 0 THEN r."LVJS"::TEXT
+                WHEN c.university = '${formData.homeUniversity}' THEN r."LVJH"::TEXT
+                ELSE r."LVJO"::TEXT
+            END || ' (' || COALESCE(
+                        (SELECT m.percentile 
+                         FROM merit_list AS m 
+                         WHERE m."Rank" = 
+                             CASE
+                                 WHEN r."LVJS" <> 0 AND r."LVJO" = 0 AND r."LVJH" = 0 THEN r."LVJS"
+                                 WHEN c.university = '${formData.homeUniversity}' THEN r."LVJH"
+                                 ELSE r."LVJO"
+                             END
+                         LIMIT 1), '0'
+                    ) || ')' AS lvj,
+        `;
+
+        caste_condition += `
+            (
+                CASE 
+                    WHEN r."LVJS" <> 0 AND r."LVJO" = 0 AND r."LVJH" = 0 THEN r."LVJS"
+                    WHEN c.university = '${formData.homeUniversity}' THEN r."LVJH"
+                    ELSE r."LVJO"
+                END BETWEEN ${new_data_of_student.minRank} AND ${new_data_of_student.maxRank}
+                OR 
+                CASE 
+                    WHEN r."LVJS" <> 0 AND r."LVJO" = 0 AND r."LVJH" = 0 THEN r."LVJS"
+                    WHEN c.university = '${formData.homeUniversity}' THEN r."LVJH"
+                    ELSE r."LVJO"
+                END = 0
+            ) AND
+        `;
+    }else{
+        caste_column += `
+            NULL::TEXT AS lvj,
+        `;
+        caste_condition += `
+            TRUE AND
+        `;
+    }
+
+
     // PWD
     if (formData.specialReservation == 'PWD') {
         caste_column += `
@@ -943,8 +1031,8 @@ async function getColleges(formData) {
 
     let table_name = `cap_${formData.round}`;
 
-    // console.log("Generated SQL:", caste_column);
-    // console.log("caste condition", caste_condition);
+    console.log("Generated SQL:", caste_column);
+    console.log("caste condition", caste_condition);
 
     try {
         const { data, error } = await supabase.rpc('get_branch_choices', {

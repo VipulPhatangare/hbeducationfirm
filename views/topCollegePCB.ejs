@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Colleges List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/topCollegePCM.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Edu<span>Path</span></a>
+            <button class="logout-btn" id="back_to_home">Back</button>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <a href="#" class="logo" style="justify-content: center; font-size: 2rem; margin-bottom: 5px; display: block; text-align: center;">Top Colleges</a>
+            <form id="collegeForm">
+                <div class="form-group">
+                    <label for="university">University</label>
+                    <select id="university" required>
+                        <option value="All" selected>All Universities</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <div class="checkbox-group" id="cityCheckboxGroup">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="city" value="All" checked>
+                            <span>All Cities</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Get Colleges</button>
+            </form>
+
+            <div class="results-container" id="resultsContainer">
+                <div class="results-header">
+                    <div class="results-title">Top Colleges</div>
+                    <div id="selectedCount">0 colleges found</div>
+                </div>
+                <div id="collegeTableContainer">
+                    <table id="collegeTable">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>College Code</th>
+                                <th>College Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="collegeTableBody">
+                        </tbody>
+                    </table>
+                    <div class="pagination" id="pagination">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/topCollegePCB.js"></script>
+</body>
+</html>

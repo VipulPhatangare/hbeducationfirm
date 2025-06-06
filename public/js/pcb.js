@@ -1,4 +1,3 @@
-
 // Sidebar functionality
 const menuToggle = document.getElementById('menuToggle');
 const sidebar = document.getElementById('sidebar');
@@ -46,8 +45,6 @@ function navigateTo(destination) {
 
 
 
-
-
 // Initialize College Swiper
 const collegeSwiper = new Swiper(".collegeSwiper", {
     slidesPerView: 1,
@@ -75,7 +72,7 @@ let colleges = [];
 
 async function collegeNames() {
     try {
-        const response = await fetch('/pcm/collegeNames');
+        const response = await fetch('/pcB/collegeNames');
         colleges = await response.json();
     } catch (error) {
         console.log(error);
@@ -212,16 +209,14 @@ function handleSwipe() {
 
 
 
-document.getElementById('branchCutoffs').addEventListener('click',()=>{
-    window.location.href = '/pcm/branchCutoffs';
-});
+// document.getElementById('branchCutoffs').addEventListener('click',()=>{
+//     window.location.href = '/pcm/branchCutoffs';
+// });
 
-document.getElementById('percentilePredictor').addEventListener('click',()=>{
-    window.location.href = '/pcm/percentilePredictor';
-});
 
-document.getElementById('topCollgesPCM').addEventListener('click',()=>{
-    window.location.href = '/pcm/topCollegePCM';
+
+document.getElementById('topCollgesPCB').addEventListener('click',()=>{
+    window.location.href = '/pcb/topCollegePCB';
 });
 
 //logout
@@ -241,14 +236,14 @@ document.getElementById('logout').addEventListener('click',async ()=>{
 });
 
 
-document.getElementById('collegePredictorPCM').addEventListener('click',()=>{
-    window.location.href = '/pcm/collegePredictorPCM';
+document.getElementById('collegePredictorPCB').addEventListener('click',()=>{
+    window.location.href = '/pcb/collegePredictorPCB';
 });
 
 
 // View College Details
 async function viewCollegeDetails(id) {
-    window.location.href = `/collegePagePCM/${id}`;
+    window.location.href = `/collegePagePCB/${id}`;
 }
 
 // Payment Modal Functions
