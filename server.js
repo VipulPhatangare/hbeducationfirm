@@ -23,17 +23,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 connectDB();
 const port = process.env.PORT
-
+const {User} = require('./database/schema');
 
 // routes
-app.get('/',isLoggedIn,(req,res)=>{
-  if(session.user.exam == 'MHTCETPCM'){
-    res.render('pcm');
-  }else if(session.user.exam == 'MHTCETPCB'){
-    res.render('pcb');
-  }else if(session.user.exam == 'NEET'){
-    res.render('pcm');
-  }
+app.get('/',isLoggedIn, async(req,res)=>{
+  res.render('pcm');
 });
 
 const registerRoutes = require('./routes/registerroute'); 
