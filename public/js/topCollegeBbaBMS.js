@@ -122,7 +122,7 @@ function displayColleges(colleges) {
 
 // View College Details
 function viewCollegeDetails(id) {
-    window.location.href = `/collegePagePCB/${id}`;
+    window.location.href = `/collegePageBBABMS/${id}`;
 }
 
 function updatePagination(totalColleges) {
