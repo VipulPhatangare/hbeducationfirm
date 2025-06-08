@@ -25,9 +25,9 @@ connectDB();
 const port = process.env.PORT
 const {User} = require('./database/schema');
 
-// routes
+// routesclear
 app.get('/',isLoggedIn, async(req,res)=>{
-  res.render('pcm');
+  res.redirect('/pcm');
 });
 
 const registerRoutes = require('./routes/registerroute'); 
@@ -45,17 +45,26 @@ app.use('/pcm',pcmRoutes);
 const pcbRoutes = require('./routes/pcbroute'); 
 app.use('/pcb',pcbRoutes);
 
+const bba_bmsRoutes = require('./routes/bba_bmsroute'); 
+app.use('/bba_bms',bba_bmsRoutes);
+
 const collegePredictorPCMRoutes = require('./routes/collegePredictorPCMroute'); 
 app.use('/collegePredictorPCM',collegePredictorPCMRoutes);
 
 const collegePredictorPCBRoutes = require('./routes/collegePredictorPCBroute'); 
 app.use('/collegePredictorPCB',collegePredictorPCBRoutes);
 
+const collegePredictorBBABMSRoutes = require('./routes/collegePredictorBBABMSroute'); 
+app.use('/collegePredictorBBABMS',collegePredictorBBABMSRoutes);
+
 const collegePagePCMRoutes = require('./routes/collegePagePCMroute'); 
 app.use('/collegePagePCM',collegePagePCMRoutes);
 
 const collegePagePCBRoutes = require('./routes/collegePagePCBroute'); 
 app.use('/collegePagePCB',collegePagePCBRoutes);
+
+const collegePageBBABMSRoutes = require('./routes/collegePageBBABMSroute'); 
+app.use('/collegePageBBABMS',collegePageBBABMSRoutes);
 
 const branchwiseCutoffPCMRoutes = require('./routes/branchwiseCutoffPCMroute'); 
 app.use('/branchwiseCutoffPCM',branchwiseCutoffPCMRoutes);

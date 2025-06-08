@@ -37,6 +37,9 @@ function navigateTo(destination) {
         case 'neet':
             window.location.href = '/neet';
             break;
+        case 'bba_bms':
+            window.location.href = '/bba_bms';
+            break;
         case 'logout':
             // Use your existing logout functionality
             document.getElementById('logout').click();

@@ -36,8 +36,8 @@ function navigateTo(destination) {
         case 'neet':
             window.location.href = '/neet';
             break;
-        case 'bba_bms':
-            window.location.href = '/bba_bms';
+        case 'bba_bca':
+            window.location.href = '/bba_bca';
             break;
         case 'logout':
             // Use your existing logout functionality
@@ -75,7 +75,7 @@ let colleges = [];
 
 async function collegeNames() {
     try {
-        const response = await fetch('/pcB/collegeNames');
+        const response = await fetch('/bba_bms/collegeNames');
         colleges = await response.json();
     } catch (error) {
         console.log(error);
@@ -111,7 +111,7 @@ searchInput.addEventListener('input', function() {
             <div class="college-name">${college.college_name}</div>
         `;
         resultItem.addEventListener('click', () => {
-            viewCollegeDetails(college.college_id);
+            viewCollegeDetails(college.college_code);
         });
         searchResults.appendChild(resultItem);
     });
@@ -212,14 +212,9 @@ function handleSwipe() {
 
 
 
-// document.getElementById('branchCutoffs').addEventListener('click',()=>{
-//     window.location.href = '/pcm/branchCutoffs';
-// });
 
-
-
-document.getElementById('topCollgesPCB').addEventListener('click',()=>{
-    window.location.href = '/pcb/topCollegePCB';
+document.getElementById('topCollgesbba_bms').addEventListener('click',()=>{
+    window.location.href = '/bba_bms/topCollegeBbaBMS';
 });
 
 //logout
@@ -239,14 +234,14 @@ document.getElementById('logout').addEventListener('click',async ()=>{
 });
 
 
-document.getElementById('collegePredictorPCB').addEventListener('click',()=>{
-    window.location.href = '/pcb/collegePredictorPCB';
+document.getElementById('collegePredictorBBABMS').addEventListener('click',()=>{
+    window.location.href = '/bba_bms/collegePredictorBBABMS';
 });
 
 
 // View College Details
 async function viewCollegeDetails(id) {
-    window.location.href = `/collegePagePCB/${id}`;
+    window.location.href = `/collegePageBBABMS/${id}`;
 }
 
 // Payment Modal Functions
