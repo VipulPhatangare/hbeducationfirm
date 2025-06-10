@@ -40,16 +40,14 @@ function navigateTo(destination) {
         case 'bba_bms':
             window.location.href = '/bba_bms';
             break;
+        case 'bca':
+            window.location.href = '/bca';
+            break;
         case 'logout':
-            // Use your existing logout functionality
             document.getElementById('logout').click();
             break;
     }
 }
-
-
-
-
 
 // Initialize College Swiper
 const collegeSwiper = new Swiper(".collegeSwiper", {

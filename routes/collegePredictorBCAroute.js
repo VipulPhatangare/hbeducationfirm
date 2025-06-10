@@ -961,7 +961,7 @@ async function getColleges(formData) {
     // console.log("caste condition", caste_condition);
 
     try {
-        const { data, error } = await supabase.rpc('get_branch_choices_bba_bms', {
+        const { data, error } = await supabase.rpc('get_branch_choices_bca', {
             homeuniversity: formData.homeuniversity,
             minrank: new_data_of_student.minRank,
             maxrank: new_data_of_student.maxRank,
@@ -976,7 +976,7 @@ async function getColleges(formData) {
             // console.log(data);
             const colleges =  college_filter(data, formData);
             colleges.sort((a, b) => b.points - a.points);
-            console.log(colleges);
+            // console.log(colleges);
             return colleges;
         }
                
@@ -996,19 +996,12 @@ function college_filter_by_city(colleges, city){
 }
 
 
-function college_fillter_by_selected_branch(colleges,selected_branches) {
-    return colleges.filter(element => selected_branches.includes(element.branch_name));
-}
 
 
 function college_filter(colleges, formData){
 
     if(formData.city[0] != 'All'){
         colleges = college_filter_by_city(colleges, formData.city);
-    }
-
-    if(formData.branchCategory != 'All'){
-        colleges = college_fillter_by_selected_branch(colleges,formData.selected_branches);
     }
 
     let college_list = [];
@@ -1051,7 +1044,7 @@ router.post('/College_list', async(req,res)=>{
 
         // console.log(new_data_of_student);
         const colleges = await getColleges(formData);
-        // // console.log(colleges);
+        // console.log(colleges);
         res.json(colleges);
 
     } catch (error) {

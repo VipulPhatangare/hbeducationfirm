@@ -16,7 +16,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -48,6 +47,9 @@ app.use('/pcb',pcbRoutes);
 const bba_bmsRoutes = require('./routes/bba_bmsroute'); 
 app.use('/bba_bms',bba_bmsRoutes);
 
+const bcaRoutes = require('./routes/bcaroute');
+app.use('/bca',bcaRoutes);
+
 const collegePredictorPCMRoutes = require('./routes/collegePredictorPCMroute'); 
 app.use('/collegePredictorPCM',collegePredictorPCMRoutes);
 
@@ -57,6 +59,9 @@ app.use('/collegePredictorPCB',collegePredictorPCBRoutes);
 const collegePredictorBBABMSRoutes = require('./routes/collegePredictorBBABMSroute'); 
 app.use('/collegePredictorBBABMS',collegePredictorBBABMSRoutes);
 
+const collegePredictorBCARoutes = require('./routes/collegePredictorBCAroute'); 
+app.use('/collegePredictorBCA',collegePredictorBCARoutes);
+
 const collegePagePCMRoutes = require('./routes/collegePagePCMroute'); 
 app.use('/collegePagePCM',collegePagePCMRoutes);
 
@@ -65,6 +70,9 @@ app.use('/collegePagePCB',collegePagePCBRoutes);
 
 const collegePageBBABMSRoutes = require('./routes/collegePageBBABMSroute'); 
 app.use('/collegePageBBABMS',collegePageBBABMSRoutes);
+
+const collegePageBCARoutes = require('./routes/collegePageBCAroute'); 
+app.use('/collegePageBCA',collegePageBCARoutes);
 
 const branchwiseCutoffPCMRoutes = require('./routes/branchwiseCutoffPCMroute'); 
 app.use('/branchwiseCutoffPCM',branchwiseCutoffPCMRoutes);
