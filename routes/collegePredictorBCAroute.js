@@ -3,7 +3,7 @@ const router = express.Router();
 const {db, supabase} = require('../database/db');
 
 router.get('/',(req,res)=>{
-  res.render('collegePredictorPCM');
+  res.render('collegePredictorBCA');
 });
 
 

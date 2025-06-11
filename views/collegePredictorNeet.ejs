@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHT CET College List Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/collegePredictorNeet.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Edu<span>Path</span></span></a>
+            <button class="logout-btn" id="back_to_neet">Back</button>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <a href="#" class="logo" style="justify-content: center; font-size: 2rem; margin-bottom :5px ;">College Predictor</a>
+            <form id="collegeForm">
+                <div class="form-group">
+                    <label for="percentile">Your Rank</label>
+                    <input type="number" id="percentile" placeholder="Enter your all India rank" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="caste">Caste Category</label>
+                    <select id="caste" required>
+                        <option value="OPEN" selected>Open</option>
+                        <option value="SC">SC</option>
+                        <option value="ST">ST</option>
+                        <option value="SEBC">SEBC</option>
+                        <option value="OBC">OBC</option>
+                        <option value="VJ">VJ</option>
+                        <option value="NT1">NT1</option>
+                        <option value="NT2">NT2</option>
+                        <option value="NT3">NT3</option>
+                        <option value="EWS">EWS</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="gender" value="Male" checked>
+                            <span>Male</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="Female">
+                            <span>Female</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="branchCategory">Branches</label>
+                    <select id="branchCategory" required>
+                        <option value="All" selected>All Branches</option>
+                        <option value="mbbs" >Bachelor of Medicine, Bachelor of Surgery (MBBS)</option>
+                        <option value="bds" >Bachelor of Dental Surgery (BDS)</option>
+                        <option value="bhms" >Bachelor of Homeopathic Medicine and Surgery (BHMS)</option>
+                        <option value="bams" >Bachelor of Ayurvedic Medicine and Surgery (BAMS)</option>
+                        <option value="pt" >Bachelor of Physiotherapy (BPT)</option>
+                        <option value="baslp" >Bachelor of Audiology and Speech-Language Pathology (BASLP)</option>
+                        <option value="bpo" >Bachelor in Prosthetics and Orthotics (BPO)</option>
+                        <option value="bams" >Bachelor of Unani Medicine and Surgery (BUMS)</option>
+                        <option value="ot" >Bachelor of Occupational Therapy (BOT)</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>City</label>
+                    <div class="checkbox-group" id="regionCheckboxGroup">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="region" value="All" checked>
+                            <span>All Cities</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Generate College List</button>
+            </form>
+
+            <div class="results-container" id="resultsContainer">
+                <div class="results-header">
+                    <div class="results-title">Recommended Colleges</div>
+                    <div id="selectedCount">0 selected</div>
+                </div>
+                <div class="college-cards" id="collegeCards"></div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/collegePredictorNeet.js"></script>
+</body>
+</html>

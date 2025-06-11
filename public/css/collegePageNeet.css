@@ -1,0 +1,477 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+
+body {
+    background-color: #0a0a1a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a3a8f;
+    border-radius: 4px;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a3a8f 100%);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    color: #4a90e2;
+}
+
+/* Main Content Styles */
+.main-content {
+    padding-top: 100px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 0;
+}
+
+/* Form Styles */
+form {
+    background: rgba(26, 58, 143, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(26, 58, 143, 0.3);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.form-group option {
+    background-color: rgba(10, 10, 26, 0.7);
+}
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn:hover {
+    background: #4a90e2;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s;
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #4a90e2;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    accent-color: #4a90e2;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #3a7bc8;
+}
+
+/* Results Container */
+.results-container {
+    display: none;
+    background: rgba(26, 58, 143, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    border: 1px solid rgba(26, 58, 143, 0.3);
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.results-title {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.college-cards {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* College Cards */
+.college-card {
+    background: rgba(26, 58, 143, 0.1);
+    border: 1px solid rgba(26, 58, 143, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.college-card.selected {
+    border-color: #4a90e2;
+    background: rgba(26, 58, 143, 0.3);
+}
+
+.college-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.college-code {
+    font-weight: 600;
+    color: #4a90e2;
+}
+
+.college-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.college-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.college-detail {
+    flex: 1;
+    min-width: 100px;
+}
+
+.college-detail-label {
+    color: #b8c2d8;
+    font-size: 0.8rem;
+}
+
+/* Finalize Button */
+.finalize-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+}
+
+.finalize-btn:hover {
+    background-color: #218838;
+}
+
+/* Branch Selection */
+.custom-branch-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    border: 1px dashed #4a90e2;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
+}
+
+.custom-branch-btn:hover {
+    background-color: rgba(74, 144, 226, 0.2);
+}
+
+.selected-branches-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.branch-tag {
+    background-color: rgba(74, 144, 226, 0.2);
+    color: #4a90e2;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.branch-tag button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Card Checkbox */
+.card-checkbox {
+    accent-color: #4a90e2;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* College Info Styles */
+.college-info-card {
+    background: rgba(26, 58, 143, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(26, 58, 143, 0.3);
+}
+
+.college-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.college-info-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4a90e2;
+}
+
+.college-info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: 0.5rem;
+}
+
+.info-label {
+    color: #b8c2d8;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Branch Table Styles */
+.branch-table-container {
+    background: rgba(26, 58, 143, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(26, 58, 143, 0.3);
+}
+
+.branch-table-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4a90e2;
+    margin-bottom: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background-color: rgba(26, 58, 143, 0.4);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: rgba(26, 58, 143, 0.1);
+}
+
+.cutoff-high {
+    color: #28a745;
+}
+
+.cutoff-medium {
+    color: #ffc107;
+}
+
+.cutoff-low {
+    color: #dc3545;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .college-details {
+        flex-direction: column;
+    }
+
+    .college-detail {
+        margin-bottom: 0.5rem;
+        min-width: 100%;
+    }
+
+    .college-info-content {
+        grid-template-columns: 1fr;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}

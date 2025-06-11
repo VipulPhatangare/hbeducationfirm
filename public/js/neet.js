@@ -77,7 +77,7 @@ let colleges = [];
 
 async function collegeNames() {
     try {
-        const response = await fetch('/pcb/collegeNames');
+        const response = await fetch('/neet/collegeNames');
         colleges = await response.json();
     } catch (error) {
         console.log(error);
@@ -113,7 +113,7 @@ searchInput.addEventListener('input', function() {
             <div class="college-name">${college.college_name}</div>
         `;
         resultItem.addEventListener('click', () => {
-            viewCollegeDetails(college.college_id);
+            viewCollegeDetails(college.college_code);
         });
         searchResults.appendChild(resultItem);
     });
@@ -220,14 +220,14 @@ function handleSwipe() {
 
 
 
-document.getElementById('topCollgesPCB').addEventListener('click',()=>{
-    window.location.href = '/pcb/topCollegePCB';
+document.getElementById('topCollgesNeet').addEventListener('click',()=>{
+    window.location.href = '/neet/topCollegeNeet';
 });
 
 //logout
 document.getElementById('logout').addEventListener('click',async ()=>{
     try {
-        const response = await fetch('/pcm/logout');
+        const response = await fetch('/neet/logout');
         const data = await response.json();
 
         if(data.islogout){
@@ -241,14 +241,14 @@ document.getElementById('logout').addEventListener('click',async ()=>{
 });
 
 
-document.getElementById('collegePredictorPCB').addEventListener('click',()=>{
-    window.location.href = '/pcb/collegePredictorPCB';
+document.getElementById('collegePredictorNeet').addEventListener('click',()=>{
+    window.location.href = '/neet/collegePredictorNeet';
 });
 
 
 // View College Details
 async function viewCollegeDetails(id) {
-    window.location.href = `/collegePagePCB/${id}`;
+    window.location.href = `/collegePageNeet/${id}`;
 }
 
 // Payment Modal Functions

@@ -50,6 +50,9 @@ app.use('/bba_bms',bba_bmsRoutes);
 const bcaRoutes = require('./routes/bcaroute');
 app.use('/bca',bcaRoutes);
 
+const neetRoutes = require('./routes/neetroute');
+app.use('/neet',neetRoutes);
+
 const collegePredictorPCMRoutes = require('./routes/collegePredictorPCMroute'); 
 app.use('/collegePredictorPCM',collegePredictorPCMRoutes);
 
@@ -62,6 +65,9 @@ app.use('/collegePredictorBBABMS',collegePredictorBBABMSRoutes);
 const collegePredictorBCARoutes = require('./routes/collegePredictorBCAroute'); 
 app.use('/collegePredictorBCA',collegePredictorBCARoutes);
 
+const collegePredictorNeetRoutes = require('./routes/collegePredictorNeetroute'); 
+app.use('/collegePredictorNeet',collegePredictorNeetRoutes);
+
 const collegePagePCMRoutes = require('./routes/collegePagePCMroute'); 
 app.use('/collegePagePCM',collegePagePCMRoutes);
 
@@ -73,6 +79,9 @@ app.use('/collegePageBBABMS',collegePageBBABMSRoutes);
 
 const collegePageBCARoutes = require('./routes/collegePageBCAroute'); 
 app.use('/collegePageBCA',collegePageBCARoutes);
+
+const collegePageNeetRoutes = require('./routes/collegePageNeetroute'); 
+app.use('/collegePageNeet',collegePageNeetRoutes);
 
 const branchwiseCutoffPCMRoutes = require('./routes/branchwiseCutoffPCMroute'); 
 app.use('/branchwiseCutoffPCM',branchwiseCutoffPCMRoutes);

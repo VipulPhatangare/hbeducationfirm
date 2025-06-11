@@ -1,6 +1,6 @@
 // Function to handle exam selection
 function selectExam(examType) {
-    localStorage.setItem('selectedExam', examType);
+    // localStorage.setItem('selectedExam', examType);
     window.location.href = `/login`;
     
 }

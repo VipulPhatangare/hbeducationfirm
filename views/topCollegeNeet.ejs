@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Colleges List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/topCollegeNeet.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Edu<span>Path</span></a>
+            <button class="logout-btn" id="back_to_home">Back</button>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <a href="#" class="logo" style="justify-content: center; font-size: 2rem; margin-bottom: 5px; display: block; text-align: center;">Top Colleges</a>
+            <form id="collegeForm">
+                <div class="form-group">
+                    <label for="university">Institute Type</label>
+                    <select id="university" required>
+                        <option value="All" selected>All Institute</option>
+                        <option value="G" >Government/Aided</option>
+                        <option value="P" >Private</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="university">Branch</label>
+                    <select id="branch" required>
+                        <option value="All" selected>All Branches</option>
+                        <option value="mbbs" >Bachelor of Medicine, Bachelor of Surgery (MBBS)</option>
+                        <option value="bds" >Bachelor of Dental Surgery (BDS)</option>
+                        <option value="bhms" >Bachelor of Homeopathic Medicine and Surgery (BHMS)</option>
+                        <option value="bams" >Bachelor of Ayurvedic Medicine and Surgery (BAMS)</option>
+                        <option value="pt" >Bachelor of Physiotherapy (BPT)</option>
+                        <option value="baslp" >Bachelor of Audiology and Speech-Language Pathology (BASLP)</option>
+                        <option value="bpo" >Bachelor in Prosthetics and Orthotics (BPO)</option>
+                        <option value="bams" >Bachelor of Unani Medicine and Surgery (BUMS)</option>
+                        <option value="ot" >Bachelor of Occupational Therapy (BOT)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <div class="checkbox-group" id="cityCheckboxGroup">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="city" value="All" checked>
+                            <span>All Cities</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Get Colleges</button>
+            </form>
+
+            <div class="results-container" id="resultsContainer">
+                <div class="results-header">
+                    <div class="results-title">Top Colleges</div>
+                    <div id="selectedCount">0 colleges found</div>
+                </div>
+                <div id="collegeTableContainer">
+                    <table id="collegeTable">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>College Code</th>
+                                <th>College Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="collegeTableBody">
+                        </tbody>
+                    </table>
+                    <div class="pagination" id="pagination">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/topCollegeNeet.js"></script>
+</body>
+</html>
