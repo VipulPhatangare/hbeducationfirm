@@ -94,13 +94,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             const result = await response.json();
             if(result.login){
                 showStatus(result.msg, 'success');
-                if(result.exam == 'MHTCETPCM'){
-                    window.location.href = '/pcm';
-                }else if(result.exam == 'MHTCETPCB'){
-                    window.location.href = '/pcb';
-                }else if(result.exam == 'NEET'){
-                    window.location.href = '/pcm';
-                }
+                window.location.href = '/afterLoginPage';
             }else{
                 showStatus(result.msg, 'error');
             }
@@ -287,3 +281,10 @@ document.addEventListener('DOMContentLoaded', async function() {
 document.getElementById('register_here').addEventListener('click',()=>{
     window.location.href = '/register';
 });
+
+
+
+
+
+
+

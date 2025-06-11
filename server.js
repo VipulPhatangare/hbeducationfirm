@@ -26,11 +26,14 @@ const {User} = require('./database/schema');
 
 // routesclear
 app.get('/',isLoggedIn, async(req,res)=>{
-  res.redirect('/pcm');
+  res.redirect('/afterLoginPage');
 });
 
 const registerRoutes = require('./routes/registerroute'); 
 app.use('/register',registerRoutes);
+
+const afterLoginPageRoutes = require('./routes/afterLoginPageroute'); 
+app.use('/afterLoginPage',afterLoginPageRoutes);
 
 const loginRoutes = require('./routes/loginroute'); 
 app.use('/login',loginRoutes);
