@@ -33,6 +33,14 @@ const otpSchema = new mongoose.Schema({
   }
 });
 
+const promoCodeSchema = new mongoose.Schema({
+  code : String,
+  count : Number
+});
+
+
 const User = mongoose.model('User', userSchema);
 const OTP = mongoose.model('OTP', otpSchema);
-module.exports = {User, OTP};
+const promoCode = mongoose.model('promoCode',promoCodeSchema);
+
+module.exports = {User, OTP, promoCode};

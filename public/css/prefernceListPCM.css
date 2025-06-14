@@ -1,0 +1,553 @@
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+
+body {
+    background-color: #0a0a1a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a3a8f;
+    border-radius: 4px;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a3a8f 100%);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    color: #4a90e2;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #4a90e2;
+    color: #4a90e2;
+}
+
+.btn-outline:hover {
+    background: #4a90e2;
+    color: #ffffff;
+}
+
+.btn-primary {
+    background: #4a90e2;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #3a7bc8;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a3a8f 100%);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu .auth-buttons {
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.close-menu-btn {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+/* Main Content Styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 6rem 2rem 2rem;
+}
+
+h1 {
+    color: #4a90e2;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+form {
+    background: rgba(26, 58, 143, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #1a3a8f;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(10, 10, 26, 0.7);
+    border: 1px solid #1a3a8f;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: all 0.3s;
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #4a90e2;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    accent-color: #4a90e2;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #3a7bc8;
+}
+
+.results-container {
+    display: none;
+    background: rgba(26, 58, 143, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #1a3a8f;
+    margin-top: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.results-title {
+    color: #4a90e2;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#selectedCount {
+    color: #b8c2d8;
+}
+
+.college-cards {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.college-card {
+    background: rgba(10, 10, 26, 0.7);
+    border: 1px solid #1a3a8f;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.college-card.selected {
+    border-color: #4a90e2;
+    background: rgba(74, 144, 226, 0.1);
+}
+
+.college-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.college-code {
+    font-weight: 600;
+    color: #4a90e2;
+}
+
+.college-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.college-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.college-detail {
+    flex: 1;
+    min-width: 120px;
+}
+
+.college-detail-label {
+    color: #b8c2d8;
+    font-size: 0.8rem;
+}
+
+.finalize-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+}
+
+.finalize-btn:hover {
+    background-color: #218838;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.custom-branch-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(10, 10, 26, 0.7);
+    color: #4a90e2;
+    border: 1px dashed #4a90e2;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
+}
+
+.custom-branch-btn:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+.selected-branches-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.branch-tag {
+    background-color: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.branch-tag button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* PDF Container Styles */
+#pdfContainer {
+    background: rgba(26, 58, 143, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #1a3a8f;
+    margin-top: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.pdf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.pdf-header h2 {
+    color: #4a90e2;
+    font-size: 1.5rem;
+}
+
+#pdfTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#pdfTable th, #pdfTable td {
+    border: 1px solid #1a3a8f;
+    padding: 0.75rem;
+    text-align: left;
+    color: #ffffff;
+}
+
+#pdfTable th {
+    background-color: rgba(26, 58, 143, 0.5);
+    font-weight: 600;
+}
+
+#pdfTable tr:nth-child(even) {
+    background-color: rgba(10, 10, 26, 0.3);
+}
+
+.contact-message {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(10, 10, 26, 0.7);
+    border-radius: 8px;
+    border: 1px solid #1a3a8f;
+}
+
+.contact-message h3 {
+    color: #4a90e2;
+    margin-bottom: 1rem;
+}
+
+.contact-message p {
+    margin-bottom: 1rem;
+    color: #b8c2d8;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 5rem 1rem 1rem;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .college-details {
+        flex-direction: column;
+    }
+
+    .college-detail {
+        margin-bottom: 0.5rem;
+        min-width: 100%;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    .auth-buttons.desktop {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn:hover {
+    background: #4a90e2;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}

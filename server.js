@@ -89,6 +89,12 @@ app.use('/collegePageNeet',collegePageNeetRoutes);
 const branchwiseCutoffPCMRoutes = require('./routes/branchwiseCutoffPCMroute'); 
 app.use('/branchwiseCutoffPCM',branchwiseCutoffPCMRoutes);
 
+const prefernceListPCMRoutes = require('./routes/prefernceListPCMroute'); 
+app.use('/prefernceListPCM',prefernceListPCMRoutes);
+
+const promoCodeRoutes = require('./routes/aapromocoderoute'); 
+app.use('/promoCode',promoCodeRoutes);
+
 app.listen(port,()=>{
     console.log('server listing at port 8080');
 })

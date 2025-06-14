@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {db, supabase} = require('../database/db');
+const {promoCode} = require('../database/schema');
 
 router.get('/',(req,res)=>{
   res.render('pcm');
@@ -109,6 +110,26 @@ router.get('/collegeNames', async (req, res) => {
   } catch (err) {
     console.error('Server error:', err);
     return res.status(500).json({ error: 'Server error' });
+  }
+});
+
+router.post('/checkCode', async (req,res)=>{
+
+  try {
+
+    const {promo_code} = req.body;
+    console.log(promo_code);
+    
+    const code = await promoCode.findOne({ code : promo_code});
+    if(!code){
+      return res.json({msg:'Invalid code.',iserr: true});
+    }else if(code && code.count == 0){
+      return res.json({msg : 'Code limit is over.', iserr : true})
+    }else{
+      return res.json({msg:'Sucssesfully updated.',iserr: false})
+    }
+  } catch (error) {
+    console.log(error);
   }
 });
 

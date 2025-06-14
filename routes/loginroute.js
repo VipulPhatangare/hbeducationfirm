@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {User} = require('../database/schema');
+const {User, promoCode} = require('../database/schema');
 const bcrypt = require('bcrypt');
 const twilio = require("twilio");
 
@@ -30,7 +30,7 @@ router.post('/checkCredentials', async(req,res)=>{
       if(!isMatch){
         return res.json({msg: `Invalid password.`,exam:`null`,login : false});
       }
-      req.session.user = {phone : phone, password : hashPassword, exam:`${user.examType}`};
+      req.session.user = {phone : phone, password : hashPassword, promoCode:''};
       return res.json({msg: `Login successful!`,exam:`${user.examType}` ,login : true});
     }
   } catch (error) {

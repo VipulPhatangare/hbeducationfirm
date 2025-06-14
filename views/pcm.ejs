@@ -345,7 +345,7 @@
                         <span>Basic Plan</span>
                         <span class="plan-price">₹500</span>
                     </div>
-                    <p class="plan-features">• Generate preference list for up to 50 colleges<br>• Save up to 3 preference lists<br>• Basic priority settings</p>
+                    <p class="plan-features">• Generate preference list for up to 75 choices.</p>
                 </div>
                 
                 <div class="plan-card" onclick="selectPlan('premium')" id="premiumPlan">
@@ -353,15 +353,32 @@
                         <span>Premium Plan</span>
                         <span class="plan-price">₹1000</span>
                     </div>
-                    <p class="plan-features">• Generate preference list for up to 150 colleges<br>• Unlimited saved preference lists<br>• Advanced priority settings<br>• Expert recommendations</p>
+                    <p class="plan-features">• Generate preference list for up to 150 choices.</p>
                 </div>
+                
+                <div class="plan-card" onclick="selectPlan('code')" id="codePlan">
+                    <div class="plan-name">
+                        <span>Have a Code?</span>
+                    </div>
+                    <input type="text" id="promoCodeInput" placeholder="Enter code" minlength="11" maxlength="11">
+                </div>
+
             </div>
             
-            <button class="payment-btn" onclick="proceedToPayment()">Proceed to Payment</button>
+            <button class="payment-btn" onclick="proceedToPayment()">Proceed </button>
         </div>
     </div>
 
-        <!-- Social Media Section -->
+    <div class="error-popup" id="errorPopup">
+        <div class="error-content">
+            <span class="close-error-btn" id="close_error">&times;</span>
+            <div class="error-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h3 class="error-title">Error</h3>
+            <p class="error-message" id="errorMessage"></p>
+        </div>
+    </div>
     <footer class="social-section">
         <div class="social-container">
             <h2 class="section-title">Connect With Us</h2>

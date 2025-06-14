@@ -261,33 +261,108 @@ function openPaymentModal() {
 
 function closePaymentModal() {
     document.getElementById('paymentModal').style.display = 'none';
+    selectedPlan = null;
+    document.getElementById('basicPlan').classList.remove('selected');
+    document.getElementById('premiumPlan').classList.remove('selected');
+    document.getElementById('codePlan').classList.remove('selected');
+    document.getElementById('promoCodeInput').value = '';
 }
 
 function selectPlan(planType) {
     selectedPlan = planType;
     const basicPlan = document.getElementById('basicPlan');
     const premiumPlan = document.getElementById('premiumPlan');
+    const codePlan = document.getElementById('codePlan');
     
+    // Reset all selections
+    basicPlan.classList.remove('selected');
+    premiumPlan.classList.remove('selected');
+    codePlan.classList.remove('selected');
+    
+    // Select the chosen plan
     if (planType === 'basic') {
         basicPlan.classList.add('selected');
-        premiumPlan.classList.remove('selected');
-    } else {
+    } else if (planType === 'premium') {
         premiumPlan.classList.add('selected');
-        basicPlan.classList.remove('selected');
+    } else if (planType === 'code') {
+        codePlan.classList.add('selected');
+        document.getElementById('promoCodeInput').focus();
     }
 }
 
-function proceedToPayment() {
-    if (!selectedPlan) {
-        alert('Please select a plan first');
-        return;
+async function proceedToPayment() {
+
+    try {
+        if (selectedPlan === 'code') {
+            const promoCode = document.getElementById('promoCodeInput').value.trim();
+            if (!promoCode || promoCode.length !== 11) {
+                showError('Please enter a valid 11-digit promo code');
+                return;
+            }
+            const promo_code = promoCode;
+            const response = await fetch('/pcm/checkCode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({promo_code})
+            });
+
+            const data = await response.json();
+            console.log(data);
+
+            if(data.iserr){
+                showError(data.msg);
+            }else{
+                window.location.href = '/prefernceListPCM';
+            }
+        }
+        
+        // if (!selectedPlan) {
+        //     alert('Please select a plan first');
+        //     return;
+        // }
+        
+        // const planName = selectedPlan === 'basic' ? 'Basic Plan (₹500)' : 'Premium Plan (₹1000)';
+        // alert(`Redirecting to payment gateway for ${planName}`);
+        
+            
+    } catch (error) {
+        console.log(error);
     }
-    
-    const planName = selectedPlan === 'basic' ? 'Basic Plan (₹500)' : 'Premium Plan (₹1000)';
-    alert(`Redirecting to payment gateway for ${planName}`);
-    // In actual implementation, this would redirect to payment gateway
-    // window.location.href = `/payment?plan=${selectedPlan}`;
+   
 }
+
+
+// Error Popup Functions
+function showError(message) {
+    const errorPopup = document.getElementById('errorPopup');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    errorMessage.textContent = message;
+    errorPopup.style.display = 'flex';
+}
+
+function closeError() {
+    document.getElementById('errorPopup').style.display = 'none';
+}
+
+// Event Listeners
+document.querySelector('.close-error-btn').addEventListener('click', closeError);
+
+// Close when clicking outside error content
+document.getElementById('errorPopup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeError();
+    }
+});
+
+
+
+
+
+
+
 
 // Mobile Menu Toggle
 document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
@@ -325,5 +400,6 @@ window.onclick = function(event) {
         closePaymentModal();
     }
 }
+
 
 

@@ -1307,5 +1307,96 @@ nav {
     }
 }
 
+/* Add these styles to your CSS */
+#promoCodeInput {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #1a3a8f;
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: white;
+    width: 370px;
+    margin-left: 10px;
+}
+
+#promoCodeInput:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+#promoCodeInput::placeholder {
+    color: #b8c2d8;
+    opacity: 0.7;
+}
+
+/* Style for the code plan when selected */
+#codePlan.selected {
+    background: rgba(26, 58, 143, 0.6);
+    border-color: #4a90e2;
+}
+
+#codePlan.selected #promoCodeInput {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #4a90e2;
+}
+
+/* Error Popup Styles */
+.error-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-content {
+    background: #1a1a2e;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #ff4d4d;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(255, 77, 77, 0.2);
+}
+
+.close-error-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #b8c2d8;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-error-btn:hover {
+    color: #ffffff;
+}
+
+.error-icon {
+    text-align: center;
+    font-size: 3rem;
+    color: #ff4d4d;
+    margin-bottom: 1rem;
+}
+
+.error-title {
+    color: #ff4d4d;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.6;
+}
+
+
 
 
