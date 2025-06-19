@@ -18,10 +18,10 @@ const new_data_of_student = {
 };
 
 function calculateRankRange(rank) {
-    let minRank = rank - 3000;
-    let maxRank = rank + 15000;
+    let minRank = rank - 1500;
+    let maxRank = rank + 5000;
 
-    if (rank < 3000) {
+    if (rank < 1500) {
         minRank = 0;
     }
 
